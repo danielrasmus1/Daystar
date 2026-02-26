@@ -22,14 +22,38 @@ export default function BookingPage() {
     preferredTime: '',
     message: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // In production, send this to your booking system/CRM
-    console.log('Booking request:', formData);
-    
+    setIsSubmitting(true);
+
+    try {
+      await fetch("/api/ghl", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstName: formData.name,
+          email: formData.email,
+          phone: formData.phone || undefined,
+          source: "booking",
+          message: [
+            formData.sessionType && `Session type: ${formData.sessionType}`,
+            formData.preferredDate && `Preferred date: ${formData.preferredDate}`,
+            formData.preferredTime && `Preferred time: ${formData.preferredTime}`,
+            formData.message && `Notes: ${formData.message}`,
+          ]
+            .filter(Boolean)
+            .join(" | "),
+        }),
+      });
+    } catch (err) {
+      // Non-fatal — we still confirm the booking even if CRM sync fails
+      console.error("[v0] GHL booking sync error:", err);
+    }
+
+    setIsSubmitting(false);
     setIsSubmitted(true);
   };
 
@@ -273,9 +297,9 @@ export default function BookingPage() {
                   </p>
                 </div>
 
-                <Button type="submit" size="lg" className="w-full">
+                <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
                   <Calendar className="mr-2 h-5 w-5" />
-                  Request Consultation
+                  {isSubmitting ? "Submitting..." : "Request Consultation"}
                 </Button>
               </form>
             </CardContent>

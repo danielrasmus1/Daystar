@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { QuizProgress } from "@/components/quiz-progress";
 import { QuizStep } from "@/components/quiz-step";
 import { LeadForm } from "@/components/lead-form";
-import { quizQuestions } from "@/lib/quiz-data";
+import { quizQuestions, calculateResult } from "@/lib/quiz-data";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
@@ -29,16 +29,16 @@ export default function QuizPage() {
 
   const handleLeadSubmit = (data: { name: string; email: string; phone: string }) => {
     const totalScore = answers.reduce((sum, val) => sum + val, 0);
-    
-    // Store lead data and score in localStorage for results page
+    const result = calculateResult(totalScore);
+
     localStorage.setItem('quizScore', totalScore.toString());
     localStorage.setItem('leadData', JSON.stringify(data));
-    
-    // In production, you would send this to your backend/CRM
-    console.log('Lead data:', data, 'Score:', totalScore);
-    
+
     router.push('/results');
   };
+
+  const currentScore = answers.reduce((sum, val) => sum + val, 0);
+  const currentResult = calculateResult(currentScore);
 
   return (
     <div className="min-h-screen bg-background">
@@ -107,7 +107,11 @@ export default function QuizPage() {
               </p>
             </div>
             
-            <LeadForm onSubmit={handleLeadSubmit} />
+            <LeadForm
+              onSubmit={handleLeadSubmit}
+              score={currentScore}
+              resultType={currentResult.type}
+            />
           </div>
         )}
       </main>
