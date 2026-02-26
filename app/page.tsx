@@ -15,14 +15,14 @@ import Link from "next/link";
 import Image from "next/image";
 
 const TICKER_ITEMS = [
-  "100% Confidential",
-  "Evidence-Based Approach",
+  "Based in Sydney, NSW",
+  "Evidence-Based Clinical Psychology",
   "Dual-Qualified: Psychologist & Coach",
   "AHPRA Registered",
-  "Registered Clinical Psychologist",
-  "Sydney & Online",
+  "Darlington Clinic & Secure Online",
   "Same-Week Availability",
   "Professional Ethical Standards",
+  "Trusted by Sydney Professionals",
 ];
 
 function MarqueeTicker() {
@@ -50,28 +50,28 @@ const STATS = [
 
 const SYMPTOMS = [
   {
-    title: "Exhausted but can't sleep",
-    body: "Your mind replays work scenarios on repeat. You wake at 3am solving problems that don't exist yet.",
+    title: "You're earning well — but running on empty",
+    body: "The salary reflects the pressure. But no one told you that by this level, the machine never switches off. You're performing, but at what cost.",
   },
   {
-    title: "Sharp temper with people you love",
-    body: "Small things trigger disproportionate reactions. You know it's not you—but you can't seem to stop it.",
+    title: "Sharp temper with the people who matter most",
+    body: "Small things trigger disproportionate reactions at home. Your family is absorbing the fallout of a job they never signed up for.",
   },
   {
-    title: "Mental clarity you once had is gone",
-    body: "High-stakes decisions that once felt instinctive now feel paralysing. The fog won't lift.",
+    title: "The mental clarity that got you here has gone",
+    body: "High-stakes decisions that once felt instinctive now feel paralysing. The fog won't lift, and you're starting to notice it affecting your judgment.",
   },
   {
-    title: "Always on, never ahead",
-    body: "Twelve-hour days don't produce twelve hours of output anymore. You're running harder, going nowhere.",
+    title: "You're working harder and producing less",
+    body: "Twelve-hour days aren't generating twelve hours of output anymore. You're spending more to get less — and that gap is widening.",
   },
   {
-    title: "You've stopped enjoying the win",
-    body: "Achievements feel hollow. The drive that got you here has quietly disappeared.",
+    title: "Success has started to feel meaningless",
+    body: "The goals you chased feel hollow now you've hit them. The drive that built your career has quietly disappeared and you don't know how to get it back.",
   },
   {
-    title: "Everything rests on your shoulders",
-    body: "You can't delegate, can't switch off, and you're terrified to admit any of this to anyone.",
+    title: "You can't tell anyone at work how you actually feel",
+    body: "Sydney's senior professional circles are small. Admitting you're struggling feels like a career risk. So you keep performing — and keep declining.",
   },
 ];
 
@@ -82,15 +82,19 @@ const FAQS = [
   },
   {
     q: "Is everything confidential?",
-    a: "Absolutely. All sessions are protected by professional confidentiality standards. Your information remains 100% private—no corporate reporting, no judgment, no exceptions.",
+    a: "Yes, completely. All sessions are protected by professional confidentiality under AHPRA and the Australian Psychological Society Code of Ethics. There is no corporate reporting, no shared records, and no exceptions. What you say in session stays in session.",
   },
   {
-    q: "In-person or online?",
-    a: "Both. In-person sessions in Sydney CBD, or secure encrypted video consultations anywhere in Australia. You choose what works for your schedule.",
+    q: "Sydney clinic or online — which is better?",
+    a: "Both are equally effective. In-person sessions are held in Darlington, Sydney — a short drive from the CBD. Online sessions use secure encrypted video. Most Sydney-based clients start in person, then move to a mix depending on their schedule.",
   },
   {
-    q: "How many sessions will I need?",
-    a: "Most professionals see significant improvement within 4–6 sessions. We'll create a personalised plan based on your specific situation and goals.",
+    q: "I'm not sure I have time for ongoing sessions.",
+    a: "You don't need to commit to ongoing sessions to start. Many Sydney professionals begin with a single Executive Clarity Session and use the written plan independently. If ongoing support makes sense for you, that conversation happens after the first session — not before.",
+  },
+  {
+    q: "Is this therapy? Will it be on my record?",
+    a: "This is clinical psychology, not general counselling. Sessions with David are private, self-funded, and not reported to Medicare or private health insurers unless you specifically request it. There is no paper trail to your employer.",
   },
 ];
 
@@ -139,7 +143,7 @@ export default function LandingPage() {
             {/* Left: copy */}
             <div className="space-y-6 md:space-y-8 order-2 lg:order-1 pb-8 lg:pb-0">
               <Badge className="bg-primary/10 text-primary border-primary/20 font-semibold tracking-wide uppercase text-xs px-4 py-1.5">
-                Clinical Psychology for High-Performers
+                Clinical Psychology for Sydney's High-Performers
               </Badge>
 
               <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight text-balance">
@@ -148,7 +152,7 @@ export default function LandingPage() {
               </h1>
 
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-lg">
-                Evidence-based strategies to overcome work stress, reclaim mental clarity, and sustain peak performance—without sacrificing your career or your health.
+                Sydney's senior professionals don't burn out loudly. They decline quietly — sharper edges, slower thinking, shorter fuse. David Lui helps you reverse it before it costs you your career, your health, or your relationships.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 pt-2">
@@ -165,8 +169,8 @@ export default function LandingPage() {
 
               <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground pt-1">
                 <span className="flex items-center gap-1.5"><Shield className="h-4 w-4 text-primary" />100% Confidential</span>
-                <span className="flex items-center gap-1.5"><Lock className="h-4 w-4 text-primary" />Private Sessions</span>
-                <span className="flex items-center gap-1.5"><Award className="h-4 w-4 text-primary" />AHPRA Registered</span>
+                <span className="flex items-center gap-1.5"><Lock className="h-4 w-4 text-primary" />No employer reporting</span>
+                <span className="flex items-center gap-1.5"><Award className="h-4 w-4 text-primary" />Darlington, Sydney</span>
               </div>
             </div>
 
@@ -228,12 +232,12 @@ export default function LandingPage() {
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
             {/* sticky label column — only sticky on desktop */}
             <div className="lg:sticky lg:top-28 space-y-6">
-              <p className="text-primary font-semibold uppercase tracking-widest text-sm">The Warning Signs</p>
+              <p className="text-primary font-semibold uppercase tracking-widest text-sm">Sounds Familiar?</p>
               <h2 className="font-serif text-4xl md:text-5xl font-bold leading-tight text-balance">
-                Do any of these sound familiar?
+                High performance has a hidden cost.
               </h2>
               <p className="text-muted-foreground text-lg leading-relaxed">
-                You're not broken. You're burned out. These are recognised clinical indicators—and every one of them is reversible with the right support.
+                These aren't signs of weakness. They're recognised clinical patterns that affect Sydney's highest-performing professionals — and every one is reversible.
               </p>
               <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold h-14 px-8" asChild>
                 <Link href="/quiz">
@@ -271,9 +275,9 @@ export default function LandingPage() {
               <Badge className="bg-primary text-primary-foreground font-bold uppercase tracking-widest text-xs px-4 py-1.5">
                 Free Assessment
               </Badge>
-              <h3 className="font-serif text-3xl md:text-4xl font-bold">The 3-Minute Stress Scorecard</h3>
+              <h3 className="font-serif text-3xl md:text-4xl font-bold">Know Where You Stand in 3 Minutes</h3>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Answer 10 questions. Get a precise picture of where you stand—and immediate action steps tailored to your level.
+                Ten questions built for senior professionals. Get a precise clinical picture of your stress load — and immediate, practical steps based on your score.
               </p>
               <div className="grid grid-cols-3 gap-4 pt-4 text-sm">
                 {[
@@ -310,7 +314,7 @@ export default function LandingPage() {
               The Executive Clarity Session
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              60 minutes to diagnose exactly what's draining you—and walk away with a personalised roadmap to fix it.
+              A single, structured 60-minute session to diagnose exactly what's driving your decline — and leave with a written plan to fix it.
             </p>
           </div>
 
@@ -383,7 +387,7 @@ export default function LandingPage() {
                     Book Your Session
                   </Link>
                 </Button>
-                <p className="text-xs text-center text-muted-foreground">Only 3 first-session slots available this month</p>
+                <p className="text-xs text-center text-muted-foreground">Darlington, Sydney or secure online · Same-week availability</p>
               </div>
             </div>
           </div>
@@ -406,15 +410,15 @@ export default function LandingPage() {
                 <div className="h-9 w-9 rounded-full bg-red-500/10 border border-red-500/20 flex items-center justify-center shrink-0">
                   <span className="text-red-500 font-bold text-sm">✕</span>
                 </div>
-                <h3 className="font-bold text-lg">Without Support</h3>
+                <h3 className="font-bold text-lg">If nothing changes</h3>
               </div>
               <ul className="space-y-3 text-muted-foreground">
                 {[
-                  "Symptoms worsen progressively over 3–6 months",
-                  "Work performance continues to decline",
-                  "Relationships become increasingly strained",
-                  "Recovery takes 12–18 months once burnout hits",
-                  "Potential career impact or forced time away",
+                  "Cognitive decline compounds quietly over 3–6 months",
+                  "Professional reputation starts to reflect the cracks",
+                  "Relationships absorb what the job creates",
+                  "Recovery from full burnout takes 12–18 months minimum",
+                  "Sydney's senior market is unforgiving — and you know it",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-sm">
                     <span className="text-red-500/60 shrink-0 mt-0.5 font-bold">—</span>
@@ -429,15 +433,15 @@ export default function LandingPage() {
                 <div className="h-9 w-9 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
                   <CheckCircle2 className="h-4 w-4 text-primary" />
                 </div>
-                <h3 className="font-bold text-lg">With Structured Support</h3>
+                <h3 className="font-bold text-lg">With structured support</h3>
               </div>
               <ul className="space-y-3 text-foreground/90">
                 {[
-                  "Immediate strategies to stop and reverse the decline",
+                  "Immediate strategies to halt the decline",
                   "Performance stabilises within 2–4 weeks",
-                  "Sustainable boundaries established within 6 weeks",
-                  "Long-term resilience tools for future high-pressure periods",
-                  "Career trajectory protected and enhanced",
+                  "Clear boundaries established within 6 weeks",
+                  "Resilience tools that hold under sustained pressure",
+                  "Career protected — and trajectory restored",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-sm">
                     <CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" />
@@ -458,14 +462,14 @@ export default function LandingPage() {
               <p className="text-primary font-semibold uppercase tracking-widest text-sm">Your Clinician</p>
               <h2 className="font-serif text-4xl md:text-5xl font-bold leading-tight">Meet David Lui</h2>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                Registered Clinical Psychologist and Executive Coach specialising in burnout recovery for high-performing professionals. David understands the world you operate in���and speaks the same language.
+                David Lui is a Registered Clinical Psychologist and Executive Coach based in Darlington, Sydney. He works specifically with senior professionals — executives, founders, partners, and managers operating under sustained high pressure. He understands the world you operate in because he's trained to work in it.
               </p>
 
               <div className="space-y-5 pt-2">
                 {[
                   { icon: Award, title: "Registered Clinical Psychologist", sub: "AHPRA registered. Licensed in New South Wales, Australia." },
-                  { icon: Shield, title: "Psychologist & Executive Coach", sub: "Rare dual qualification bridging clinical science with real-world leadership demands." },
-                  { icon: CheckCircle2, title: "Evidence-Based Approach", sub: "Clinical interventions grounded in peer-reviewed research—not generic self-help." },
+                  { icon: Shield, title: "Psychologist & Executive Coach", sub: "Rare dual qualification — clinical science applied to real leadership demands." },
+                  { icon: CheckCircle2, title: "Based in Darlington, Sydney", sub: "In-person sessions near the CBD. Secure online for interstate and busy schedules." },
                 ].map(({ icon: Icon, title, sub }) => (
                   <div key={title} className="flex items-start gap-4">
                     <div className="h-10 w-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 mt-0.5">
@@ -490,11 +494,11 @@ export default function LandingPage() {
             {/* Authority badges grid */}
             <div className="grid grid-cols-2 gap-3">
               {[
-                { icon: Shield, label: "AHPRA Registered", sub: "Nationally recognised" },
-                { icon: Award, label: "8+ Years Practice", sub: "Clinical psychology" },
-                { icon: Lock, label: "Confidential", sub: "Professional standards" },
-                { icon: CheckCircle2, label: "Evidence-Based", sub: "Peer-reviewed method" },
-                { icon: Clock, label: "Same-Week Access", sub: "Fast availability" },
+                { icon: Shield, label: "AHPRA Registered", sub: "NSW licensed" },
+                { icon: Award, label: "8+ Years Practice", sub: "Senior professionals" },
+                { icon: Lock, label: "No Employer Reporting", sub: "Fully private" },
+                { icon: CheckCircle2, label: "Evidence-Based", sub: "Peer-reviewed" },
+                { icon: Clock, label: "Same-Week Access", sub: "Darlington, Sydney" },
                 { icon: Award, label: "Dual-Qualified", sub: "Psych & Coach" },
               ].map(({ icon: Icon, label, sub }) => (
                 <div key={label} className="flex flex-col items-start gap-2 p-4 rounded-xl bg-card border border-border/50 hover:border-primary/30 transition-colors min-w-0">
@@ -521,10 +525,10 @@ export default function LandingPage() {
         <div className="container mx-auto max-w-3xl text-center space-y-8 relative">
           <p className="text-primary font-semibold uppercase tracking-widest text-sm">Take the First Step</p>
           <h2 className="font-serif text-4xl md:text-6xl font-bold text-balance leading-tight">
-            You don't have to navigate this alone.
+            The cost of waiting is higher than the cost of acting.
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Start with the free 3-minute assessment, or book your strategy session directly. Either way—you're closer to clarity than you think.
+            Sydney's senior professionals don't get second chances to fix a reputation quietly. Start with the free assessment — or book directly.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
             <Button size="lg" className="text-base h-14 px-10 bg-primary hover:bg-primary/90 text-primary-foreground font-bold shadow-lg shadow-primary/25" asChild>
@@ -537,7 +541,7 @@ export default function LandingPage() {
               <Link href="/booking">Book Strategy Session</Link>
             </Button>
           </div>
-          <p className="text-sm text-muted-foreground">100% confidential &bull; AHPRA registered &bull; Sydney or online</p>
+          <p className="text-sm text-muted-foreground">100% confidential &bull; No employer reporting &bull; Darlington, Sydney or secure online</p>
         </div>
       </section>
 

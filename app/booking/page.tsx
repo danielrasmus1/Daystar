@@ -83,12 +83,12 @@ export default function BookingPage() {
             <div className="h-20 w-20 rounded-full bg-green-100 flex items-center justify-center mx-auto">
               <CheckCircle2 className="h-10 w-10 text-green-600" />
             </div>
-            <h1 className="text-3xl md:text-4xl font-serif">Booking Request Received!</h1>
+            <h1 className="text-3xl md:text-4xl font-serif">Request Received</h1>
             <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-              Thank you for your interest in working with DayStar Strategies. We've received your consultation request and will be in touch within 24 hours to confirm your appointment.
+              David will be in touch within 24 hours to confirm your session time. In-person sessions are held in Darlington, Sydney. Online sessions use secure encrypted video.
             </p>
             <div className="bg-muted/50 rounded-lg p-6 text-left">
-              <h3 className="font-semibold mb-3">What happens next?</h3>
+              <h3 className="font-semibold mb-3">What happens next</h3>
               <ul className="space-y-2 text-muted-foreground">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
@@ -96,11 +96,11 @@ export default function BookingPage() {
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <span>We'll contact you to schedule your preferred time</span>
+                  <span>David will confirm your preferred time within 24 hours</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <span>You'll receive session details and preparation information</span>
+                  <span>Session details and a brief preparation note will follow</span>
                 </li>
               </ul>
             </div>

@@ -67,9 +67,9 @@ export function ResultsDisplay({ result, totalScore }: ResultsDisplayProps) {
               Book Private Consultation
             </Link>
           </Button>
-          <p className="text-sm text-muted-foreground mt-3">
-            Confidential • One-to-one • Online or In-Person
-          </p>
+        <p className="text-sm text-muted-foreground mt-3">
+          Confidential · No employer reporting · Darlington, Sydney or secure online
+        </p>
         </div>
       </div>
 
@@ -77,11 +77,10 @@ export function ResultsDisplay({ result, totalScore }: ResultsDisplayProps) {
       <div className="border-l-4 border-primary pl-6 space-y-4">
         <h2 className="text-xl md:text-2xl font-bold">Why This Matters at Your Level</h2>
         <p className="text-muted-foreground leading-relaxed">
-          High-responsibility professionals don't burn out suddenly.<br className="hidden md:block" />
-          They lose cognitive margin quietly.
+          Sydney's high earners don't burn out overnight. They lose cognitive margin quietly — sharper edges, slower thinking, less tolerance for ambiguity.
         </p>
         <p className="text-muted-foreground leading-relaxed">
-          When decisions affect revenue, teams, and outcomes, even small reductions in clarity compound quickly.
+          At senior level, even a 10% reduction in clarity affects decisions, team dynamics, and reputation. The professional circles here are tight. The cost of mismanaging this is real.
         </p>
       </div>
 
@@ -286,7 +285,7 @@ export function ResultsDisplay({ result, totalScore }: ResultsDisplayProps) {
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </Button>
-          <p className="text-xs text-center text-muted-foreground">Private · Confidential · Darlington or Online</p>
+          <p className="text-xs text-center text-muted-foreground">Private · Confidential · No employer reporting · Darlington, Sydney or online</p>
         </CardContent>
       </Card>
 
@@ -348,9 +347,9 @@ export function ResultsDisplay({ result, totalScore }: ResultsDisplayProps) {
 
       {/* Final Conversion Section */}
       <div className="bg-gradient-to-br from-card to-card/50 rounded-xl p-8 md:p-12 text-center space-y-6 border border-primary/20">
-        <h2 className="text-3xl md:text-4xl font-bold">You Don't Have to Navigate This Alone</h2>
+        <h2 className="text-3xl md:text-4xl font-bold">The cost of waiting compounds.</h2>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-          Book your confidential strategy session with David Lui and walk away with a clear plan to regain control of your work-life balance.
+          Book a private session with David Lui — Sydney-based, AHPRA registered, and trained to work with professionals operating under real pressure.
         </p>
         <Button size="lg" className="h-16 px-12 text-lg bg-primary hover:bg-primary/90 text-primary-foreground font-bold" asChild>
           <Link href="/booking">
@@ -359,7 +358,7 @@ export function ResultsDisplay({ result, totalScore }: ResultsDisplayProps) {
           </Link>
         </Button>
         <p className="text-sm text-muted-foreground pt-2">
-          Next available slot: This week • 100% confidential • AHPRA registered
+          Same-week availability · Darlington, Sydney · 100% confidential · AHPRA registered
         </p>
       </div>
     </div>
