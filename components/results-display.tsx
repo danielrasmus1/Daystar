@@ -77,10 +77,10 @@ export function ResultsDisplay({ result, totalScore }: ResultsDisplayProps) {
       <div className="border-l-4 border-primary pl-6 space-y-4">
         <h2 className="text-xl md:text-2xl font-bold">Why This Matters at Your Level</h2>
         <p className="text-muted-foreground leading-relaxed">
-          Sydney's high earners don't burn out overnight. They lose cognitive margin quietly — sharper edges, slower thinking, less tolerance for ambiguity.
+          Driven professionals in Sydney don't burn out overnight. They lose cognitive margin quietly — sharper edges, slower thinking, less tolerance for ambiguity.
         </p>
         <p className="text-muted-foreground leading-relaxed">
-          At senior level, even a 10% reduction in clarity affects decisions, team dynamics, and reputation. The professional circles here are tight. The cost of mismanaging this is real.
+          When you're performing under real pressure, even a 10% reduction in clarity affects decisions, team dynamics, and reputation. The professional circles here are tight. The cost of mismanaging this is real.
         </p>
       </div>
 

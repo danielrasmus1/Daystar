@@ -71,7 +71,7 @@ const SYMPTOMS = [
   },
   {
     title: "You can't tell anyone at work how you actually feel",
-    body: "Sydney's senior professional circles are small. Admitting you're struggling feels like a career risk. So you keep performing — and keep declining.",
+    body: "Sydney's professional circles are small. Admitting you're struggling feels like a career risk. So you keep performing — and keep declining.",
   },
 ];
 
@@ -152,7 +152,7 @@ export default function LandingPage() {
               </h1>
 
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-lg">
-                Sydney's senior professionals don't burn out loudly. They decline quietly — sharper edges, slower thinking, shorter fuse. David Lui helps you reverse it before it costs you your career, your health, or your relationships.
+                Sydney's driven professionals don't burn out loudly. They decline quietly — sharper edges, slower thinking, shorter fuse. David Lui helps you reverse it before it costs you your career, your health, or your relationships.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 pt-2">
@@ -277,7 +277,7 @@ export default function LandingPage() {
               </Badge>
               <h3 className="font-serif text-3xl md:text-4xl font-bold">Know Where You Stand in 3 Minutes</h3>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Ten questions built for senior professionals. Get a precise clinical picture of your stress load — and immediate, practical steps based on your score.
+                Ten questions built for professionals under pressure. Get a precise clinical picture of your stress load — and immediate, practical steps based on your score.
               </p>
               <div className="grid grid-cols-3 gap-4 pt-4 text-sm">
                 {[
@@ -418,7 +418,7 @@ export default function LandingPage() {
                   "Professional reputation starts to reflect the cracks",
                   "Relationships absorb what the job creates",
                   "Recovery from full burnout takes 12–18 months minimum",
-                  "Sydney's senior market is unforgiving — and you know it",
+                  "Sydney's professional market is unforgiving — and you know it",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-sm">
                     <span className="text-red-500/60 shrink-0 mt-0.5 font-bold">—</span>
@@ -462,7 +462,7 @@ export default function LandingPage() {
               <p className="text-primary font-semibold uppercase tracking-widest text-sm">Your Clinician</p>
               <h2 className="font-serif text-4xl md:text-5xl font-bold leading-tight">Meet David Lui</h2>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                David Lui is a Registered Clinical Psychologist and Executive Coach based in Darlington, Sydney. He works specifically with senior professionals — executives, founders, partners, and managers operating under sustained high pressure. He understands the world you operate in because he's trained to work in it.
+                David Lui is a Registered Clinical Psychologist and Executive Coach based in Darlington, Sydney. He works with driven professionals — people who perform under real pressure, carry real responsibility, and can't afford to fall apart. He understands the world you operate in because he's trained to work in it.
               </p>
 
               <div className="space-y-5 pt-2">
@@ -495,7 +495,7 @@ export default function LandingPage() {
             <div className="grid grid-cols-2 gap-3">
               {[
                 { icon: Shield, label: "AHPRA Registered", sub: "NSW licensed" },
-                { icon: Award, label: "8+ Years Practice", sub: "Senior professionals" },
+                { icon: Award, label: "8+ Years Practice", sub: "Driven professionals" },
                 { icon: Lock, label: "No Employer Reporting", sub: "Fully private" },
                 { icon: CheckCircle2, label: "Evidence-Based", sub: "Peer-reviewed" },
                 { icon: Clock, label: "Same-Week Access", sub: "Darlington, Sydney" },
@@ -528,7 +528,7 @@ export default function LandingPage() {
             The cost of waiting is higher than the cost of acting.
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Sydney's senior professionals don't get second chances to fix a reputation quietly. Start with the free assessment — or book directly.
+            Sydney's professionals don't get second chances to fix a reputation quietly. Start with the free assessment — or book directly.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
             <Button size="lg" className="text-base h-14 px-10 bg-primary hover:bg-primary/90 text-primary-foreground font-bold shadow-lg shadow-primary/25" asChild>
