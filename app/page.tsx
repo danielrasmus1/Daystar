@@ -50,51 +50,55 @@ const STATS = [
 
 const SYMPTOMS = [
   {
-    title: "You're earning well — but running on empty",
-    body: "The salary reflects the pressure. But no one told you that by this level, the machine never switches off. You're performing, but at what cost.",
+    title: "You're earning well — but running on fumes",
+    body: "The income reflects the pressure. But somewhere between the promotions and the deadlines, the machine stopped switching off. You're delivering — barely — and nobody knows.",
   },
   {
-    title: "Sharp temper with the people who matter most",
-    body: "Small things trigger disproportionate reactions at home. Your family is absorbing the fallout of a job they never signed up for.",
+    title: "You snap at the people who had nothing to do with it",
+    body: "Your partner. Your kids. The barista. Small things trigger responses that surprise even you. The pressure has to go somewhere — and it's landing at home.",
   },
   {
-    title: "The mental clarity that got you here has gone",
-    body: "High-stakes decisions that once felt instinctive now feel paralysing. The fog won't lift, and you're starting to notice it affecting your judgment.",
+    title: "The sharpness that built your career has gone blunt",
+    body: "Decisions that once came fast now feel heavy. You're slower, second-guessing yourself, sitting on emails you'd have sent in ten seconds eighteen months ago.",
   },
   {
-    title: "You're working harder and producing less",
-    body: "Twelve-hour days aren't generating twelve hours of output anymore. You're spending more to get less — and that gap is widening.",
+    title: "More hours. Less to show for it.",
+    body: "You used to get more done in less time. Now the day disappears and the list barely moves. The effort is there. The output isn't.",
   },
   {
-    title: "Success has started to feel meaningless",
-    body: "The goals you chased feel hollow now you've hit them. The drive that built your career has quietly disappeared and you don't know how to get it back.",
+    title: "You hit the goal. You felt nothing.",
+    body: "The raise came through. The deal closed. You expected to feel something and didn't. That's not gratitude fatigue — that's a clinical signal worth taking seriously.",
   },
   {
-    title: "You can't tell anyone at work how you actually feel",
-    body: "Sydney's professional circles are small. Admitting you're struggling feels like a career risk. So you keep performing — and keep declining.",
+    title: "You can't say any of this out loud at work",
+    body: "Sydney's professional networks are small and long-memoried. Admitting you're struggling isn't an option — so you keep the performance going while the gap between mask and reality widens.",
   },
 ];
 
 const FAQS = [
   {
-    q: "What's the investment?",
-    a: "The Executive Clarity Session is $395 for 60 minutes. This includes a structured burnout assessment, a personalised written recovery plan delivered within 24 hours, and an ongoing stress audit framework.",
+    q: "What does it cost?",
+    a: "The Executive Clarity Session is $395 for 60 minutes. That includes a structured clinical burnout assessment, a written personalised recovery plan delivered within 24 hours, and a stress audit framework you keep. One session. Tangible output.",
   },
   {
-    q: "Is everything confidential?",
-    a: "Yes, completely. All sessions are protected by professional confidentiality under AHPRA and the Australian Psychological Society Code of Ethics. There is no corporate reporting, no shared records, and no exceptions. What you say in session stays in session.",
+    q: "Is this completely confidential?",
+    a: "Yes. Sessions are protected by professional confidentiality obligations under AHPRA and the Australian Psychological Society Code of Ethics. Nothing is reported to Medicare, your employer, or your insurer unless you specifically request it in writing. There is no paper trail.",
   },
   {
-    q: "Sydney clinic or online — which is better?",
-    a: "Both are equally effective. In-person sessions are held in Darlington, Sydney — a short drive from the CBD. Online sessions use secure encrypted video. Most Sydney-based clients start in person, then move to a mix depending on their schedule.",
+    q: "In-person in Sydney or online — does it matter?",
+    a: "Both deliver the same clinical outcome. The Darlington clinic is a 10-minute drive from the Sydney CBD. Online sessions run on secure encrypted video. If you're not sure, start in person — most clients find the dedicated space helps them shift out of work mode faster.",
   },
   {
-    q: "I'm not sure I have time for ongoing sessions.",
-    a: "You don't need to commit to ongoing sessions to start. Many Sydney professionals begin with a single Executive Clarity Session and use the written plan independently. If ongoing support makes sense for you, that conversation happens after the first session — not before.",
+    q: "Do I have to commit to ongoing sessions?",
+    a: "No. You're booking one session. Many people use the written plan on their own from there. If it makes sense to continue, that's a conversation you have with David after the first session — never a condition of booking.",
   },
   {
-    q: "Is this therapy? Will it be on my record?",
-    a: "This is clinical psychology, not general counselling. Sessions with David are private, self-funded, and not reported to Medicare or private health insurers unless you specifically request it. There is no paper trail to your employer.",
+    q: "Will this show up anywhere — health records, insurance, HR?",
+    a: "No. This is private, self-funded clinical psychology. It is not reported to Medicare or private health funds unless you choose to claim. Your employer has no access to any information. Nothing enters any shared system.",
+  },
+  {
+    q: "I've tried things before and they didn't stick.",
+    a: "Generic stress management advice doesn't work for people under real professional pressure — because it wasn't designed for that context. David's approach is diagnostic first. Before any strategy is suggested, he maps exactly what's driving your specific situation. The plan you leave with is built for your role, your pressure pattern, and your schedule.",
   },
 ];
 
@@ -112,7 +116,7 @@ export default function LandingPage() {
               </div>
               <div className="min-w-0">
                 <p className="font-bold text-sm leading-none tracking-tight truncate">DayStar Strategies</p>
-                <p className="text-xs text-muted-foreground hidden sm:block mt-0.5">Clinical Psychology for Executives</p>
+                <p className="text-xs text-muted-foreground hidden sm:block mt-0.5">                Clinical Psychology · Sydney, NSW</p>
               </div>
             </div>
             <nav className="hidden md:flex items-center gap-6 text-sm text-muted-foreground shrink-0">
@@ -143,27 +147,27 @@ export default function LandingPage() {
             {/* Left: copy */}
             <div className="space-y-6 md:space-y-8 order-2 lg:order-1 pb-8 lg:pb-0">
               <Badge className="bg-primary/10 text-primary border-primary/20 font-semibold tracking-wide uppercase text-xs px-4 py-1.5">
-                Clinical Psychology for Sydney's High-Performers
+                For Sydney Professionals Who Can't Afford to Slow Down
               </Badge>
 
               <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight text-balance">
-                Burned Out?<br />
-                <em className="not-italic text-primary">Get Your<br />Edge Back.</em>
+                Something's<br />
+                <em className="not-italic text-primary">Off. And You<br />Already Know It.</em>
               </h1>
 
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-lg">
-                Sydney's driven professionals don't burn out loudly. They decline quietly — sharper edges, slower thinking, shorter fuse. David Lui helps you reverse it before it costs you your career, your health, or your relationships.
+                You're still performing. But the sharpness has dulled, the patience has thinned, and the drive that got you here is running quiet. David Lui is a Registered Clinical Psychologist based in Sydney — he helps driven professionals identify exactly what's happening and build a clear plan to fix it.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 pt-2">
                 <Button size="lg" className="text-base h-14 px-8 bg-primary hover:bg-primary/90 text-primary-foreground font-bold shadow-lg shadow-primary/20 w-full sm:w-auto" asChild>
                   <Link href="/quiz">
-                    Take Free Stress Assessment
+                    Take the Free 3-Minute Assessment
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
                 <Button size="lg" variant="outline" className="text-base h-14 px-8 bg-transparent border-border hover:bg-foreground/5 font-semibold w-full sm:w-auto" asChild>
-                  <Link href="/booking">Book Session — $395</Link>
+                  <Link href="/booking">Skip Ahead — Book Directly</Link>
                 </Button>
               </div>
 
@@ -232,16 +236,16 @@ export default function LandingPage() {
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
             {/* sticky label column — only sticky on desktop */}
             <div className="lg:sticky lg:top-28 space-y-6">
-              <p className="text-primary font-semibold uppercase tracking-widest text-sm">Sounds Familiar?</p>
+              <p className="text-primary font-semibold uppercase tracking-widest text-sm">Sound Familiar?</p>
               <h2 className="font-serif text-4xl md:text-5xl font-bold leading-tight text-balance">
-                High performance has a hidden cost.
+                The warning signs are easy to explain away.
               </h2>
               <p className="text-muted-foreground text-lg leading-relaxed">
-                These aren't signs of weakness. They're recognised clinical patterns that affect Sydney's highest-performing professionals — and every one is reversible.
+                Until they're not. These are recognised clinical patterns — not character flaws, not weakness — and every one of them is reversible with the right diagnosis.
               </p>
               <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold h-14 px-8" asChild>
                 <Link href="/quiz">
-                  Check Your Stress Level
+                  Find Out Where You Stand — Free
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
@@ -275,9 +279,9 @@ export default function LandingPage() {
               <Badge className="bg-primary text-primary-foreground font-bold uppercase tracking-widest text-xs px-4 py-1.5">
                 Free Assessment
               </Badge>
-              <h3 className="font-serif text-3xl md:text-4xl font-bold">Know Where You Stand in 3 Minutes</h3>
+              <h3 className="font-serif text-3xl md:text-4xl font-bold">Not sure how bad it is? Start here.</h3>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Ten questions built for professionals under pressure. Get a precise clinical picture of your stress load — and immediate, practical steps based on your score.
+                Ten questions. Three minutes. You'll get a clinical read on your stress level and the specific patterns worth addressing — before you decide whether to book.
               </p>
               <div className="grid grid-cols-3 gap-4 pt-4 text-sm">
                 {[
@@ -296,7 +300,7 @@ export default function LandingPage() {
               </div>
               <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold h-14 px-10 text-base" asChild>
                 <Link href="/quiz">
-                  Start Your Stress Scorecard
+                  Take the Free Assessment
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
@@ -309,12 +313,12 @@ export default function LandingPage() {
       <section id="session" className="py-16 md:py-24 px-4 md:px-6 bg-card/30">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16 space-y-4">
-            <p className="text-primary font-semibold uppercase tracking-widest text-sm">The Offer</p>
+            <p className="text-primary font-semibold uppercase tracking-widest text-sm">One Session. Real Output.</p>
             <h2 className="font-serif text-4xl md:text-5xl font-bold text-balance">
               The Executive Clarity Session
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              A single, structured 60-minute session to diagnose exactly what's driving your decline — and leave with a written plan to fix it.
+              Sixty minutes with a registered clinical psychologist. You leave with a written plan — specific to your situation, your pressures, and your schedule. Not a conversation. A diagnosis with a deliverable.
             </p>
           </div>
 
@@ -323,20 +327,20 @@ export default function LandingPage() {
             <div className="lg:col-span-3 space-y-4">
               {[
                 {
-                  title: "60-Minute Diagnostic Deep-Dive",
-                  body: "Identify your exact burnout triggers and the precise mental resource leaks draining your performance.",
+                  title: "Clinical Burnout Diagnostic",
+                  body: "A structured assessment that identifies your exact triggers, stress patterns, and the hidden cognitive leaks draining your performance.",
                 },
                 {
-                  title: "Personalised Recovery Plan",
-                  body: "A written action plan delivered within 24 hours—specific to your role, pressures, and goals.",
+                  title: "Written Recovery Plan — Delivered in 24hrs",
+                  body: "Not a generic list. A prioritised, role-specific action plan with clear steps based on what David surfaces in your session.",
                 },
                 {
-                  title: "Executive Stress Audit Tool",
-                  body: "An ongoing self-monitoring framework so you can catch warning signs before they escalate.",
+                  title: "Stress Audit Framework",
+                  body: "A self-monitoring tool you keep — so you can spot warning signs early and intervene before they compound.",
                 },
                 {
-                  title: "Bonus Resources",
-                  body: "15-minute audio reset, high-stakes conflict scripts, and full resource library access.",
+                  title: "Immediate-Use Resources",
+                  body: "A practical reset toolkit including a 15-minute audio regulation practice and conflict management frameworks.",
                 },
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-4 p-5 rounded-xl bg-background border border-border/50 hover:border-primary/40 transition-colors">
@@ -355,7 +359,7 @@ export default function LandingPage() {
             <div className="lg:col-span-2">
               <div className="rounded-2xl border-2 border-primary/40 bg-card p-8 space-y-6 relative">
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <Badge className="bg-primary text-primary-foreground font-bold uppercase tracking-widest text-xs px-4 py-1">Best Value</Badge>
+                  <Badge className="bg-primary text-primary-foreground font-bold uppercase tracking-widest text-xs px-4 py-1">One Session Only</Badge>
                 </div>
                 <div className="pt-2 space-y-1">
                   <div className="flex items-baseline gap-2">
@@ -384,7 +388,7 @@ export default function LandingPage() {
                 <Button size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold h-13 text-base" asChild>
                   <Link href="/booking">
                     <Calendar className="mr-2 h-5 w-5" />
-                    Book Your Session
+                    Book the Session
                   </Link>
                 </Button>
                 <p className="text-xs text-center text-muted-foreground">Darlington, Sydney or secure online · Same-week availability</p>
@@ -398,9 +402,9 @@ export default function LandingPage() {
       <section className="py-16 md:py-24 px-4 md:px-6 border-y border-border/40">
         <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-14 space-y-4">
-            <p className="text-primary font-semibold uppercase tracking-widest text-sm">The Fork in the Road</p>
+            <p className="text-primary font-semibold uppercase tracking-widest text-sm">The Reality Check</p>
             <h2 className="font-serif text-4xl md:text-5xl font-bold text-balance">
-              Two very different trajectories from here
+              The longer this goes on, the harder it is to reverse.
             </h2>
           </div>
           <div className="grid md:grid-cols-2 gap-0 border border-border/50 rounded-2xl overflow-hidden">
@@ -414,11 +418,11 @@ export default function LandingPage() {
               </div>
               <ul className="space-y-3 text-muted-foreground">
                 {[
-                  "Cognitive decline compounds quietly over 3–6 months",
-                  "Professional reputation starts to reflect the cracks",
-                  "Relationships absorb what the job creates",
-                  "Recovery from full burnout takes 12–18 months minimum",
-                  "Sydney's professional market is unforgiving — and you know it",
+                  "Cognitive decline compounds — slowly, then quickly",
+                  "Errors and missed cues start appearing at work",
+                  "The people closest to you absorb the overflow",
+                  "Full burnout recovery takes 12–18 months minimum",
+                  "Sydney's professional circles have long memories",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-sm">
                     <span className="text-red-500/60 shrink-0 mt-0.5 font-bold">—</span>
@@ -437,11 +441,11 @@ export default function LandingPage() {
               </div>
               <ul className="space-y-3 text-foreground/90">
                 {[
-                  "Immediate strategies to halt the decline",
-                  "Performance stabilises within 2–4 weeks",
-                  "Clear boundaries established within 6 weeks",
-                  "Resilience tools that hold under sustained pressure",
-                  "Career protected — and trajectory restored",
+                  "Clarity on exactly what's driving the decline",
+                  "A practical plan in your hands within 24 hours",
+                  "Pressure boundaries that hold without the guilt",
+                  "Tools that work under real professional conditions",
+                  "Back in control of your performance and your life",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-sm">
                     <CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" />
@@ -459,10 +463,10 @@ export default function LandingPage() {
         <div className="container mx-auto max-w-5xl">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="space-y-6">
-              <p className="text-primary font-semibold uppercase tracking-widest text-sm">Your Clinician</p>
-              <h2 className="font-serif text-4xl md:text-5xl font-bold leading-tight">Meet David Lui</h2>
+              <p className="text-primary font-semibold uppercase tracking-widest text-sm">About David</p>
+              <h2 className="font-serif text-4xl md:text-5xl font-bold leading-tight">He Works With People Like You.</h2>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                David Lui is a Registered Clinical Psychologist and Executive Coach based in Darlington, Sydney. He works with driven professionals — people who perform under real pressure, carry real responsibility, and can't afford to fall apart. He understands the world you operate in because he's trained to work in it.
+                David Lui is a Registered Clinical Psychologist and Executive Coach based in Darlington, Sydney. He works specifically with driven professionals — people who perform under real pressure, carry real responsibility, and can't be seen to be struggling. He doesn't deal in generic wellness advice. He deals in diagnosis and structured plans.
               </p>
 
               <div className="space-y-5 pt-2">
@@ -485,7 +489,7 @@ export default function LandingPage() {
 
               <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold mt-2" asChild>
                 <Link href="/quiz">
-                  Start Your Free Assessment
+                  Start with the Free Assessment
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
@@ -523,22 +527,22 @@ export default function LandingPage() {
           }}
         />
         <div className="container mx-auto max-w-3xl text-center space-y-8 relative">
-          <p className="text-primary font-semibold uppercase tracking-widest text-sm">Take the First Step</p>
+          <p className="text-primary font-semibold uppercase tracking-widest text-sm">Make a Decision</p>
           <h2 className="font-serif text-4xl md:text-6xl font-bold text-balance leading-tight">
-            The cost of waiting is higher than the cost of acting.
+            You already know something needs to change.
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Sydney's professionals don't get second chances to fix a reputation quietly. Start with the free assessment — or book directly.
+            The assessment is free. It takes three minutes. And it will tell you exactly where you stand — with no obligation to book anything.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
             <Button size="lg" className="text-base h-14 px-10 bg-primary hover:bg-primary/90 text-primary-foreground font-bold shadow-lg shadow-primary/25" asChild>
               <Link href="/quiz">
-                Take Free Stress Assessment
+                Take the Free Assessment
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
             <Button size="lg" variant="outline" className="text-base h-14 px-10 bg-transparent border-border hover:bg-foreground/5 font-semibold" asChild>
-              <Link href="/booking">Book Strategy Session</Link>
+              <Link href="/booking">Book Directly — $395</Link>
             </Button>
           </div>
           <p className="text-sm text-muted-foreground">100% confidential &bull; No employer reporting &bull; Darlington, Sydney or secure online</p>
@@ -550,7 +554,7 @@ export default function LandingPage() {
         <div className="container mx-auto max-w-3xl">
           <div className="text-center mb-12 space-y-3">
             <p className="text-primary font-semibold uppercase tracking-widest text-sm">Questions</p>
-            <h2 className="font-serif text-3xl md:text-4xl font-bold">Common Questions</h2>
+            <h2 className="font-serif text-3xl md:text-4xl font-bold">Questions</h2>
           </div>
           <div className="divide-y divide-border/50">
             {FAQS.map((faq, i) => (

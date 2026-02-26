@@ -131,22 +131,22 @@ export function calculateResult(totalScore: number): QuizResult {
   if (totalScore <= 20) {
     return {
       type: 'controlled',
-      title: 'High Performance with Warning Signs',
-      description: 'You\'re still operating at a high level, but subtle indicators suggest your current pace isn\'t fully sustainable. Early intervention now—before symptoms escalate—will help you maintain peak performance long-term while protecting your health and relationships.',
+      title: 'Managing — But the Cracks Are Starting to Show',
+      description: 'You\'re still performing, but the data tells a different story beneath the surface. The patterns here are early warning signs — and early is exactly when intervention is most effective. Most people at this score wait until it gets worse. That\'s the wrong call.',
       scoreRange: '10-20',
     };
   } else if (totalScore <= 35) {
     return {
       type: 'risk',
-      title: 'Significant Burnout Risk',
-      description: 'You\'re experiencing clear warning signals that your system is overloaded. Your performance, relationships, and well-being are being compromised. Without strategic intervention, you\'re on track for clinical burnout within 3-6 months. Professional support is strongly recommended.',
+      title: 'You\'re Running on Borrowed Time',
+      description: 'This score reflects a system under sustained overload. Your performance, clarity, and relationships are already being affected — even if you\'re still holding it together on the outside. Without a structural change, the clinical trajectory from here leads to full burnout within 3–6 months.',
       scoreRange: '21-35',
     };
   } else {
     return {
       type: 'overload',
-      title: 'Critical Stress Overload',
-      description: 'You\'re in a state of advanced burnout with severe impacts across physical, emotional, and professional domains. Immediate professional intervention is essential—your current state is not sustainable and poses serious risks to your health, career, and relationships. This is a crisis that requires urgent attention.',
+      title: 'This Is a Clinical Emergency — Not a Rough Patch',
+      description: 'Your score indicates advanced burnout affecting every domain: physical, cognitive, emotional, and professional. The window to manage this yourself has likely passed. Immediate professional support isn\'t optional at this level — it\'s the difference between a 6-week recovery and an 18-month one.',
       scoreRange: '36-50',
     };
   }
