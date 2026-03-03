@@ -1,3 +1,7 @@
 {
-  "installCommand": "rm -rf node_modules && pnpm install"
+  "installCommand": "rm -rf node_modules && pnpm install",
+  "buildCommand": "pnpm build",
+  "devCommand": "pnpm dev",
+  "framework": "nextjs"
 }
+
