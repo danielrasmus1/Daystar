@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 
 const GHL_API_BASE = "https://services.leadconnectorhq.com";
-const GHL_API_KEY = process.env.GHL_API_KEY!;
+const GHL_API_KEY = process.env.GHL_API_KEY;
+const GHL_LOCATION_ID = process.env.GHL_LOCATION_ID;
 
 interface GHLPayload {
   firstName: string;
@@ -16,15 +17,19 @@ interface GHLPayload {
 }
 
 async function upsertContact(payload: GHLPayload) {
+  if (!GHL_API_KEY) throw new Error("GHL_API_KEY environment variable is not set");
+  if (!GHL_LOCATION_ID) throw new Error("GHL_LOCATION_ID environment variable is not set");
+
   const nameParts = payload.firstName.trim().split(" ");
   const firstName = nameParts[0];
   const lastName = nameParts.slice(1).join(" ") || payload.lastName || "";
 
   const body: Record<string, unknown> = {
+    locationId: GHL_LOCATION_ID,
     firstName,
     lastName,
     email: payload.email,
-    source: "public api",
+    source: "Daystar Website",
     tags: payload.tags ?? [],
     customFields: [] as { key: string; field_value: string }[],
   };
@@ -56,6 +61,7 @@ async function upsertContact(payload: GHLPayload) {
 
   if (!res.ok) {
     const err = await res.text();
+    console.error(`[v0] GHL upsert failed — status: ${res.status} — body:`, err);
     throw new Error(`GHL upsert failed: ${res.status} ${err}`);
   }
 
@@ -63,6 +69,7 @@ async function upsertContact(payload: GHLPayload) {
 }
 
 async function triggerWorkflow(contactId: string, workflowId: string) {
+  if (!GHL_API_KEY) return;
   const res = await fetch(
     `${GHL_API_BASE}/contacts/${contactId}/workflow/${workflowId}`,
     {
