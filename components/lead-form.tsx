@@ -5,7 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Lock } from "lucide-react";
+import Link from "next/link";
 
 interface LeadFormProps {
   onSubmit: (data: { name: string; email: string; phone: string }) => void;
@@ -16,6 +18,7 @@ interface LeadFormProps {
 export function LeadForm({ onSubmit, score, resultType }: LeadFormProps) {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [consented, setConsented] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -86,10 +89,32 @@ export function LeadForm({ onSubmit, score, resultType }: LeadFormProps) {
               placeholder="+61 400 000 000"
             />
           </div>
-          <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
+          <Button type="submit" className="w-full" size="lg" disabled={isSubmitting || !consented}>
             {isSubmitting ? "Submitting..." : "View My Results"}
           </Button>
-          <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground pt-2">
+
+          {/* Consent & Privacy */}
+          <div className="space-y-3 pt-1">
+            <div className="flex items-start gap-3">
+              <Checkbox
+                id="consent"
+                checked={consented}
+                onCheckedChange={(v) => setConsented(!!v)}
+                className="mt-0.5 shrink-0"
+              />
+              <Label htmlFor="consent" className="text-xs text-muted-foreground leading-relaxed cursor-pointer">
+                By submitting, you agree to be contacted regarding your results and related services. Your information is handled in accordance with Australian Privacy Principles.{" "}
+                <Link href="/privacy" className="underline underline-offset-2 hover:text-foreground">Privacy Policy</Link>.
+              </Label>
+            </div>
+
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              These results are informational only and do not constitute a clinical diagnosis. If you are in crisis, contact{" "}
+              <a href="tel:131114" className="underline underline-offset-2 hover:text-foreground">Lifeline on 13 11 14</a>.
+            </p>
+          </div>
+
+          <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
             <Lock className="h-3 w-3" />
             <span>Your information is kept strictly confidential</span>
           </div>
