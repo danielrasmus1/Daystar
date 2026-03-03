@@ -95,7 +95,7 @@ export function ResultsDisplay({ result, totalScore }: ResultsDisplayProps) {
           <Button size="lg" className="h-14 px-10 text-base bg-primary hover:bg-primary/90 text-primary-foreground font-bold" asChild>
             <Link href="/booking">
               <Calendar className="mr-2 h-5 w-5" />
-              Book a Burnout Coaching Session
+              Book Free 15-Min Burnout Call
             </Link>
           </Button>
           <Button size="lg" variant="outline" className="h-14 px-8 text-base bg-transparent font-semibold" asChild>
@@ -386,7 +386,7 @@ export function ResultsDisplay({ result, totalScore }: ResultsDisplayProps) {
 
           <Button size="lg" className="w-full h-14 text-lg bg-primary hover:bg-primary/90 text-primary-foreground font-bold" asChild>
             <Link href="/booking">
-              Book Your Burnout Coaching Session
+              Book Free 15-Min Burnout Call
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </Button>
@@ -419,13 +419,13 @@ export function ResultsDisplay({ result, totalScore }: ResultsDisplayProps) {
       <div className="rounded-xl bg-card border border-primary/20 p-8 md:p-12 text-center space-y-6">
         <h2 className="text-3xl md:text-4xl font-bold font-serif">You already know something needs to change.</h2>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-          Book a private burnout coaching session with David. One hour. A written plan in 24 hours. No ongoing obligation. Sydney-based, AHPRA registered, built for professionals under real pressure.
+          Start with a free 15-minute call — David will give you an honest read on your situation and whether he can help. No sales pitch. No commitment.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
           <Button size="lg" className="h-14 px-10 text-base bg-primary hover:bg-primary/90 text-primary-foreground font-bold" asChild>
             <Link href="/booking">
               <Calendar className="mr-2 h-5 w-5" />
-              Book the Session — $395
+              Book Free 15-Min Call
             </Link>
           </Button>
           <Button size="lg" variant="outline" className="h-14 px-8 text-base bg-transparent font-semibold" asChild>
@@ -436,7 +436,7 @@ export function ResultsDisplay({ result, totalScore }: ResultsDisplayProps) {
           </Button>
         </div>
         <p className="text-sm text-muted-foreground">
-          Same-week availability · Darlington, Sydney · 100% confidential · AHPRA registered
+          Free · No commitment · Same-week availability · Darlington, Sydney or phone
         </p>
       </div>
 

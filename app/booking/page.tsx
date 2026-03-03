@@ -1,326 +1,110 @@
 'use client';
 
-import React from "react"
-
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { ArrowLeft, Calendar, CheckCircle2, Clock, MapPin, Video } from "lucide-react";
+import { ArrowLeft, Clock, Phone, Shield } from "lucide-react";
 import Link from "next/link";
 import { SiteFooter } from "@/components/site-footer";
 
+const TIDYCAL_URL = "https://tidycal.com/davidluipsychology/15-minute-meeting";
+
 export default function BookingPage() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    sessionType: 'video',
-    preferredDate: '',
-    preferredTime: '',
-    message: '',
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      await fetch("/api/ghl", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          firstName: formData.name,
-          email: formData.email,
-          phone: formData.phone || undefined,
-          source: "booking",
-          message: [
-            formData.sessionType && `Session type: ${formData.sessionType}`,
-            formData.preferredDate && `Preferred date: ${formData.preferredDate}`,
-            formData.preferredTime && `Preferred time: ${formData.preferredTime}`,
-            formData.message && `Notes: ${formData.message}`,
-          ]
-            .filter(Boolean)
-            .join(" | "),
-        }),
-      });
-    } catch (err) {
-      // Non-fatal — we still confirm the booking even if CRM sync fails
-      console.error("[v0] GHL booking sync error:", err);
-    }
-
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-  };
-
-  if (isSubmitted) {
-    return (
-      <div className="min-h-screen bg-background">
-        {/* Header */}
-        <header className="border-b border-border/40 bg-background/95 backdrop-blur-sm sticky top-0 z-50">
-          <div className="container mx-auto px-4 py-3">
-            <div className="flex items-center justify-between">
-              <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-                <div className="h-9 w-9 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-sm">
-                  DS
-                </div>
-                <div>
-                  <p className="font-bold text-sm leading-none">DayStar Strategies</p>
-                  <p className="text-xs text-muted-foreground hidden sm:block mt-0.5">Clinical Psychology for Executives</p>
-                </div>
-              </Link>
-            </div>
-          </div>
-        </header>
-
-        {/* Success Message */}
-        <main className="container mx-auto px-4 py-20">
-          <div className="max-w-2xl mx-auto text-center space-y-6">
-            <div className="h-20 w-20 rounded-full bg-green-100 flex items-center justify-center mx-auto">
-              <CheckCircle2 className="h-10 w-10 text-green-600" />
-            </div>
-            <h1 className="text-3xl md:text-4xl font-serif">Request Received</h1>
-            <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-              David will be in touch within 24 hours to confirm your session time. In-person sessions are held in Darlington, Sydney. Online sessions use secure encrypted video.
-            </p>
-            <div className="bg-muted/50 rounded-lg p-6 text-left">
-              <h3 className="font-semibold mb-3">What happens next</h3>
-              <ul className="space-y-2 text-muted-foreground">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <span>You'll receive a confirmation email shortly</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <span>David will confirm your preferred time within 24 hours</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <span>Session details and a brief preparation note will follow</span>
-                </li>
-              </ul>
-            </div>
-            <Button size="lg" asChild>
-              <Link href="/">Return to Home</Link>
-            </Button>
-          </div>
-        </main>
-        <SiteFooter />
-      </div>
-    );
-  }
-
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background flex flex-col">
       {/* Header */}
       <header className="border-b border-border/40 bg-background/95 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-3">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-              <ArrowLeft className="h-5 w-5" />
-              <div className="h-9 w-9 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-sm">
+          <div className="flex items-center gap-3">
+            <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity text-muted-foreground hover:text-foreground">
+              <ArrowLeft className="h-4 w-4" />
+              <span className="text-sm">Back</span>
+            </Link>
+            <div className="h-4 w-px bg-border mx-1" />
+            <Link href="/" className="flex items-center gap-2.5 hover:opacity-80 transition-opacity">
+              <div className="h-8 w-8 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-xs">
                 DS
               </div>
-              <div>
-                <p className="font-bold text-sm leading-none">DayStar Strategies</p>
-                <p className="text-xs text-muted-foreground hidden sm:block mt-0.5">Clinical Psychology for Executives</p>
-              </div>
+              <span className="font-bold text-sm">DayStar Strategies</span>
             </Link>
           </div>
         </div>
       </header>
 
-      {/* Booking Content */}
-      <main className="container mx-auto px-4 py-12 md:py-20">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <h1 className="text-3xl md:text-4xl font-serif mb-4">Book Your Consultation</h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Take the first step toward regaining balance. Schedule a confidential consultation with David Lui.
+      <main className="flex-1">
+        {/* Hero */}
+        <section className="border-b border-border/40 bg-card/30 px-4 py-8 md:py-12 text-center">
+          <div className="container mx-auto max-w-2xl space-y-3">
+            <p className="text-primary font-semibold uppercase tracking-widest text-xs">Free · No obligation</p>
+            <h1 className="font-serif text-3xl md:text-4xl font-bold text-balance">
+              Book Your Free 15-Minute Burnout Assessment Call
+            </h1>
+            <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+              A short, private call with David to understand what you're dealing with and whether he can help. No sales pitch. No commitment. Just clarity.
+            </p>
+
+            {/* Trust strip */}
+            <div className="flex flex-wrap items-center justify-center gap-4 pt-2 text-xs text-muted-foreground">
+              <span className="flex items-center gap-1.5">
+                <Clock className="h-3.5 w-3.5 text-primary" />
+                15 minutes
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Phone className="h-3.5 w-3.5 text-primary" />
+                Phone or video
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Shield className="h-3.5 w-3.5 text-primary" />
+                100% confidential
+              </span>
+            </div>
+          </div>
+        </section>
+
+        {/* Calendar embed */}
+        <section className="px-4 py-6 md:py-10">
+          <div className="container mx-auto max-w-3xl">
+            <div className="rounded-xl overflow-hidden border border-border/50 bg-card shadow-sm">
+              <iframe
+                src={TIDYCAL_URL}
+                className="w-full"
+                style={{ minHeight: "700px", border: "none" }}
+                title="Book a free 15-minute burnout assessment call with David Lui"
+                loading="lazy"
+                allow="camera; microphone"
+              />
+            </div>
+            <p className="text-center text-xs text-muted-foreground mt-4 leading-relaxed">
+              Powered by TidyCal · Secure booking · All information is kept strictly confidential
             </p>
           </div>
+        </section>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            <Card>
-              <CardHeader>
-                <Clock className="h-8 w-8 text-primary mb-2" />
-                <CardTitle>Session Length</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-base">
-                  60-minute initial consultation to discuss your situation and goals
-                </CardDescription>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <Video className="h-8 w-8 text-primary mb-2" />
-                <CardTitle>Video or In-Person</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-base">
-                  Secure telehealth or face-to-face sessions in Sydney
-                </CardDescription>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <MapPin className="h-8 w-8 text-primary mb-2" />
-                <CardTitle>Location</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-base">
-                  Sydney office or online from anywhere in Australia
-                </CardDescription>
-              </CardContent>
-            </Card>
+        {/* What to expect */}
+        <section className="px-4 pb-12 md:pb-16">
+          <div className="container mx-auto max-w-2xl">
+            <div className="bg-card/50 border border-border/50 rounded-xl p-6 md:p-8 space-y-5">
+              <h2 className="font-serif text-xl font-bold">What happens on the call</h2>
+              <ul className="space-y-3 text-sm text-muted-foreground">
+                {[
+                  "David will ask a few questions to understand your current situation and stress patterns.",
+                  "You'll get an honest, clinical read on what's happening and whether it warrants further support.",
+                  "If it makes sense to work together, David will outline exactly what that looks like — no pressure.",
+                  "If it doesn't, he'll point you toward the most useful next step. Either way, you leave with clarity.",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="text-primary font-bold shrink-0 mt-0.5">{i + 1}.</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <p className="text-xs text-muted-foreground border-t border-border/40 pt-4">
+                If you are in crisis, do not wait for a callback. Contact{" "}
+                <a href="tel:131114" className="underline underline-offset-2 hover:text-foreground">Lifeline on 13 11 14</a>{" "}
+                or call 000.
+              </p>
+            </div>
           </div>
-
-          <Card className="border-2">
-            <CardHeader>
-              <CardTitle className="text-2xl">Request an Appointment</CardTitle>
-              <CardDescription className="text-base">
-                Fill out the form below and we'll contact you to schedule your consultation
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Full Name *</Label>
-                    <Input
-                      id="name"
-                      type="text"
-                      required
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="John Smith"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email Address *</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      required
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="john@company.com"
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="phone">Phone Number *</Label>
-                  <Input
-                    id="phone"
-                    type="tel"
-                    required
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="+61 400 000 000"
-                  />
-                </div>
-
-                <div className="space-y-3">
-                  <Label>Preferred Session Type *</Label>
-                  <RadioGroup
-                    value={formData.sessionType}
-                    onValueChange={(value) => setFormData({ ...formData, sessionType: value })}
-                  >
-                    <div className="flex items-center space-x-2 border rounded-lg p-4 cursor-pointer hover:border-primary transition-colors">
-                      <RadioGroupItem value="video" id="video" />
-                      <Label htmlFor="video" className="flex-1 cursor-pointer">
-                        <div className="flex items-center gap-2">
-                          <Video className="h-5 w-5 text-primary" />
-                          <div>
-                            <p className="font-medium">Video Consultation</p>
-                            <p className="text-sm text-muted-foreground">Secure online session</p>
-                          </div>
-                        </div>
-                      </Label>
-                    </div>
-                    <div className="flex items-center space-x-2 border rounded-lg p-4 cursor-pointer hover:border-primary transition-colors">
-                      <RadioGroupItem value="in-person" id="in-person" />
-                      <Label htmlFor="in-person" className="flex-1 cursor-pointer">
-                        <div className="flex items-center gap-2">
-                          <MapPin className="h-5 w-5 text-primary" />
-                          <div>
-                            <p className="font-medium">In-Person Session</p>
-                            <p className="text-sm text-muted-foreground">Sydney office</p>
-                          </div>
-                        </div>
-                      </Label>
-                    </div>
-                  </RadioGroup>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="preferredDate">Preferred Date</Label>
-                    <Input
-                      id="preferredDate"
-                      type="date"
-                      value={formData.preferredDate}
-                      onChange={(e) => setFormData({ ...formData, preferredDate: e.target.value })}
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="preferredTime">Preferred Time</Label>
-                    <Input
-                      id="preferredTime"
-                      type="time"
-                      value={formData.preferredTime}
-                      onChange={(e) => setFormData({ ...formData, preferredTime: e.target.value })}
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="message">Tell us about your situation (optional)</Label>
-                  <Textarea
-                    id="message"
-                    rows={4}
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Share what brings you to seek support..."
-                  />
-                </div>
-
-                <div className="bg-muted/50 rounded-lg p-4 text-sm text-muted-foreground">
-                  <p className="flex items-start gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                    <span>All information is kept strictly confidential and secure</span>
-                  </p>
-                </div>
-
-                <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
-                  <Calendar className="mr-2 h-5 w-5" />
-                  {isSubmitting ? "Submitting..." : "Request Consultation"}
-                </Button>
-
-                <p className="text-xs text-muted-foreground text-center leading-relaxed">
-                  Medicare rebates may be available with a valid GP referral under a Mental Health Treatment Plan. Eligibility criteria apply.
-                  If you are in crisis, contact <a href="tel:131114" className="underline underline-offset-2">Lifeline on 13 11 14</a>.
-                </p>
-              </form>
-            </CardContent>
-          </Card>
-
-          <div className="mt-12 text-center text-sm text-muted-foreground">
-            <p>
-              By submitting this form, you agree to be contacted by DayStar Strategies regarding your consultation request.
-            </p>
-          </div>
-        </div>
+        </section>
       </main>
 
-      {/* Footer */}
       <SiteFooter />
     </div>
   );
