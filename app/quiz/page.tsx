@@ -28,7 +28,9 @@ export default function QuizPage() {
   };
 
   const handleLeadSubmit = (data: { name: string; email: string; phone: string }) => {
-    const totalScore = answers.reduce((sum, val) => sum + val, 0);
+    let totalScore = answers.reduce((sum, val) => sum + val, 0);
+    // Cap score at 35 maximum
+    totalScore = Math.min(totalScore, 35);
     const result = calculateResult(totalScore);
 
     localStorage.setItem('quizScore', totalScore.toString());
@@ -37,7 +39,7 @@ export default function QuizPage() {
     router.push('/results');
   };
 
-  const currentScore = answers.reduce((sum, val) => sum + val, 0);
+  const currentScore = Math.min(answers.reduce((sum, val) => sum + val, 0), 35);
   const currentResult = calculateResult(currentScore);
 
   return (

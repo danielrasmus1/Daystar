@@ -128,14 +128,17 @@ export interface QuizResult {
 }
 
 export function calculateResult(totalScore: number): QuizResult {
-  if (totalScore <= 20) {
+  // Cap score at 35 maximum
+  const cappedScore = Math.min(totalScore, 35);
+
+  if (cappedScore <= 20) {
     return {
       type: 'controlled',
       title: 'Managing — But the Cracks Are Starting to Show',
       description: 'You\'re still performing, but the data tells a different story beneath the surface. The patterns here are early warning signs — and early is exactly when intervention is most effective. Most people at this score wait until it gets worse. That\'s the wrong call.',
       scoreRange: '10-20',
     };
-  } else if (totalScore <= 35) {
+  } else if (cappedScore <= 35) {
     return {
       type: 'risk',
       title: 'You\'re Running on Borrowed Time',
