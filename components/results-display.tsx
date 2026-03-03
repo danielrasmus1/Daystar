@@ -25,6 +25,8 @@ interface ResultsDisplayProps {
 }
 
 export function ResultsDisplay({ result, totalScore }: ResultsDisplayProps) {
+  // Hard cap — score must never display above 35 regardless of source
+  const displayScore = Math.min(totalScore, 35);
   const getResultBadge = (type: string) => {
     switch (type) {
       case "controlled":
@@ -78,7 +80,7 @@ export function ResultsDisplay({ result, totalScore }: ResultsDisplayProps) {
       <div className="text-center space-y-6">
         <Badge variant="outline" className={`text-base px-5 py-2.5 ${badgeInfo.color} font-semibold`}>
           <BadgeIcon className="h-4 w-4 mr-2" />
-          Your Score: {totalScore}/35
+          Your Score: {displayScore}/35
         </Badge>
         <h1 className="text-4xl md:text-5xl font-bold text-balance leading-tight font-serif">
           {result.title}
