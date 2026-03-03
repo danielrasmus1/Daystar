@@ -93,7 +93,11 @@ const FAQS = [
   },
   {
     q: "Do I have to commit to ongoing sessions?",
-    a: "No. You're booking one session. Many people use the written plan on their own from there. If it makes sense to continue, that's a conversation you have with David after the first session — never a condition of booking.",
+    a: "No. Start with a free 15-minute call. There's no commitment, no credit card, and no obligation. If it makes sense to work together, that conversation happens on the call — never before.",
+  },
+  {
+    q: "What does it cost?",
+    a: "The free 15-minute burnout assessment call costs nothing. If you and David decide to proceed, the Executive Burnout Coaching Session is $395 for 60 minutes — including a written recovery plan delivered within 24 hours.",
   },
   {
     q: "Will this show up anywhere — health records, insurance, HR?",
@@ -146,7 +150,7 @@ export default function LandingPage() {
               <a href="#faq" className="hover:text-foreground transition-colors">FAQ</a>
             </nav>
             <Button asChild size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-4 shrink-0">
-              <Link href="/booking">Book Session</Link>
+              <Link href="/booking">Book Free Call</Link>
             </Button>
           </div>
         </div>
@@ -189,7 +193,7 @@ export default function LandingPage() {
                   </Link>
                 </Button>
                 <Button size="lg" variant="outline" className="text-sm h-11 px-6 bg-transparent border-border hover:bg-foreground/5 font-medium w-full" asChild>
-                  <Link href="/booking">Skip Ahead — Book Directly · $395</Link>
+                  <Link href="/booking">Book Free 15-Min Call</Link>
                 </Button>
               </div>
 
@@ -431,11 +435,11 @@ export default function LandingPage() {
 
                 <Button size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold h-12 text-sm" asChild>
                   <Link href="/booking">
-                    Book the Burnout Coaching Session
+                    Book Free 15-Min Burnout Call
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
-                <p className="text-xs text-center text-muted-foreground">Darlington, Sydney or secure online · Same-week availability</p>
+                <p className="text-xs text-center text-muted-foreground">Free · No commitment · Darlington, Sydney or phone</p>
               </div>
             </div>
           </div>
@@ -574,7 +578,7 @@ export default function LandingPage() {
             You already know something needs to change.
           </h2>
           <p className="text-muted-foreground text-sm md:text-xl max-w-2xl mx-auto leading-relaxed">
-            The assessment is free. It takes three minutes. And it will tell you exactly where you stand — with no obligation to book anything.
+            The assessment is free and takes three minutes. Or book a free 15-minute call with David directly — no forms, no waiting, just clarity.
           </p>
           <div className="flex flex-col gap-3 pt-2">
             <Button size="lg" className="text-base h-14 px-10 bg-primary hover:bg-primary/90 text-primary-foreground font-bold shadow-lg shadow-primary/25 w-full" asChild>
@@ -584,7 +588,7 @@ export default function LandingPage() {
               </Link>
             </Button>
             <Button size="lg" variant="outline" className="text-sm h-11 px-8 bg-transparent border-border hover:bg-foreground/5 font-medium w-full" asChild>
-              <Link href="/booking">Book Directly — $395</Link>
+              <Link href="/booking">Book a Free 15-Min Call</Link>
             </Button>
           </div>
           <p className="text-xs text-muted-foreground">100% confidential &bull; No employer reporting &bull; Darlington, Sydney or secure online</p>
@@ -622,7 +626,7 @@ export default function LandingPage() {
             </Link>
           </Button>
           <Button variant="outline" className="flex-1 bg-transparent h-12 font-semibold text-sm border-border" asChild>
-            <Link href="/booking">Book · $395</Link>
+            <Link href="/booking">Free 15-Min Call</Link>
           </Button>
         </div>
       </div>
