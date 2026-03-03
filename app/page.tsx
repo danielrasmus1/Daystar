@@ -78,7 +78,7 @@ const SYMPTOMS = [
 const FAQS = [
   {
     q: "What does it cost?",
-    a: "The Executive Clarity Session is $395 for 60 minutes. That includes a structured clinical burnout assessment, a written personalised recovery plan delivered within 24 hours, and a stress audit framework you keep. One session. Tangible output.",
+                  a: "The Executive Burnout Coaching Session is $395 for 60 minutes. That includes a structured clinical burnout assessment, a written personalised recovery plan delivered within 24 hours, and a stress audit framework you keep. One session. Tangible output.",
   },
   {
     q: "Is this completely confidential?",
@@ -315,7 +315,7 @@ export default function LandingPage() {
           <div className="text-center mb-16 space-y-4">
             <p className="text-primary font-semibold uppercase tracking-widest text-sm">One Session. Real Output.</p>
             <h2 className="font-serif text-4xl md:text-5xl font-bold text-balance">
-              The Executive Clarity Session
+              The Executive Burnout Coaching Session
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Sixty minutes with a registered clinical psychologist. You leave with a written plan — specific to your situation, your pressures, and your schedule. Not a conversation. A diagnosis with a deliverable.
@@ -387,8 +387,8 @@ export default function LandingPage() {
 
                 <Button size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold h-13 text-base" asChild>
                   <Link href="/booking">
-                    <Calendar className="mr-2 h-5 w-5" />
-                    Book the Session
+                    Book the Burnout Coaching Session
+                    <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
                 <p className="text-xs text-center text-muted-foreground">Darlington, Sydney or secure online · Same-week availability</p>

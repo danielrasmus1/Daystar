@@ -1,7 +1,21 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle2, Download, Calendar, AlertCircle, TrendingDown, Award, Shield, X, ArrowRight } from "lucide-react";
+import {
+  CheckCircle2,
+  Download,
+  Calendar,
+  AlertCircle,
+  TrendingDown,
+  Award,
+  Shield,
+  X,
+  ArrowRight,
+  BookOpen,
+  Clock,
+  Lightbulb,
+  Heart,
+} from "lucide-react";
 import type { QuizResult } from "@/lib/quiz-data";
 import Link from "next/link";
 
@@ -13,99 +27,191 @@ interface ResultsDisplayProps {
 export function ResultsDisplay({ result, totalScore }: ResultsDisplayProps) {
   const getResultBadge = (type: string) => {
     switch (type) {
-      case 'controlled':
-        return { color: 'bg-primary/10 text-primary border-primary/20', icon: CheckCircle2 };
-      case 'risk':
-        return { color: 'bg-amber-500/10 text-amber-500 border-amber-500/20', icon: AlertCircle };
-      case 'overload':
-        return { color: 'bg-red-500/10 text-red-500 border-red-500/20', icon: TrendingDown };
+      case "controlled":
+        return { color: "bg-primary/10 text-primary border-primary/20", icon: CheckCircle2 };
+      case "risk":
+        return { color: "bg-amber-500/10 text-amber-500 border-amber-500/20", icon: AlertCircle };
+      case "overload":
+        return { color: "bg-red-500/10 text-red-500 border-red-500/20", icon: TrendingDown };
       default:
-        return { color: 'bg-muted text-muted-foreground border-border', icon: AlertCircle };
+        return { color: "bg-muted text-muted-foreground border-border", icon: AlertCircle };
     }
   };
 
   const badgeInfo = getResultBadge(result.type);
   const BadgeIcon = badgeInfo.icon;
 
-  const consequences = result.type === 'overload' ? [
-    "Your cognitive capacity is being depleted faster than it can recover",
-    "Decision quality is compromised — you may already be seeing the effects",
-    "The people around you are absorbing what the job is producing",
-    "Full burnout recovery at this level typically takes 12–18 months minimum",
-  ] : result.type === 'risk' ? [
-    "Performance will continue to erode without a structural change",
-    "The gap between effort and output will keep widening",
-    "What looks like a rough patch is a measurable clinical trajectory",
-    "Early intervention now is dramatically more effective than late intervention",
-  ] : [
-    "The current pace is not fully sustainable — the data is already showing it",
-    "Without attention, warning signs at this level tend to escalate within 6 months",
-    "Small adjustments now protect your performance long-term",
-    "This is the window where prevention is still cheaper than recovery",
-  ];
+  const consequences =
+    result.type === "overload"
+      ? [
+          "Your cognitive capacity is being depleted faster than it can recover",
+          "Decision quality is compromised — you may already be seeing the effects",
+          "The people around you are absorbing what the job is producing",
+          "Full burnout recovery at this level typically takes 12–18 months minimum",
+        ]
+      : result.type === "risk"
+      ? [
+          "Performance will continue to erode without a structural change",
+          "The gap between effort and output will keep widening",
+          "What looks like a rough patch is a measurable clinical trajectory",
+          "Early intervention now is dramatically more effective than late intervention",
+        ]
+      : [
+          "The current pace is not fully sustainable — the data is already showing it",
+          "Without attention, warning signs at this level tend to escalate within 6 months",
+          "Small adjustments now protect your performance long-term",
+          "This is the window where prevention is still cheaper than recovery",
+        ];
+
+  // Score-adaptive urgency label
+  const urgencyLabel =
+    result.type === "overload"
+      ? "Immediate action recommended"
+      : result.type === "risk"
+      ? "Action recommended within 2–4 weeks"
+      : "Worth addressing now, before it escalates";
 
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-12">
-      {/* Above-the-fold Result Block */}
+    <div className="w-full max-w-4xl mx-auto space-y-14">
+
+      {/* ── 1. RESULT HEADER ── */}
       <div className="text-center space-y-6">
-        <Badge variant="outline" className={`text-lg px-6 py-3 ${badgeInfo.color} font-semibold`}>
-          <BadgeIcon className="h-5 w-5 mr-2" />
+        <Badge variant="outline" className={`text-base px-5 py-2.5 ${badgeInfo.color} font-semibold`}>
+          <BadgeIcon className="h-4 w-4 mr-2" />
           Your Score: {totalScore}/35
         </Badge>
-        <h1 className="text-4xl md:text-5xl font-bold text-balance leading-tight">
+        <h1 className="text-4xl md:text-5xl font-bold text-balance leading-tight font-serif">
           {result.title}
         </h1>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
           {result.description}
         </p>
+        <p className="text-sm font-semibold uppercase tracking-widest text-primary">{urgencyLabel}</p>
 
-        {/* Primary CTA */}
-        <div className="pt-4">
-          <Button size="lg" className="h-14 px-10 text-lg bg-primary hover:bg-primary/90 text-primary-foreground font-bold" asChild>
+        {/* Primary CTA — above fold */}
+        <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
+          <Button size="lg" className="h-14 px-10 text-base bg-primary hover:bg-primary/90 text-primary-foreground font-bold" asChild>
             <Link href="/booking">
               <Calendar className="mr-2 h-5 w-5" />
-              Book a Private Session with David
+              Book a Burnout Coaching Session
             </Link>
           </Button>
-        <p className="text-sm text-muted-foreground mt-3">
+          <Button size="lg" variant="outline" className="h-14 px-8 text-base bg-transparent font-semibold" asChild>
+            <a href="/rest-up-guide.pdf" download="Rest-Up-Guide-David-Lui.pdf">
+              <Download className="mr-2 h-4 w-4" />
+              Free Recovery Guide
+            </a>
+          </Button>
+        </div>
+        <p className="text-sm text-muted-foreground">
           Confidential · No employer reporting · Darlington, Sydney or secure online
         </p>
-        </div>
       </div>
 
-      {/* Identity Reinforcement */}
-      <div className="border-l-4 border-primary pl-6 space-y-4">
-        <h2 className="text-xl md:text-2xl font-bold">Why This Matters at Your Level</h2>
-        <p className="text-muted-foreground leading-relaxed">
-          Driven professionals in Sydney don't burn out overnight. They lose cognitive margin quietly — sharper edges, slower thinking, less tolerance for ambiguity.
-        </p>
-        <p className="text-muted-foreground leading-relaxed">
-          When you're performing under real pressure, even a 10% reduction in clarity affects decisions, team dynamics, and reputation. The professional circles here are tight. The cost of mismanaging this is real.
-        </p>
-      </div>
-
-      {/* Consequence Section */}
+      {/* ── 2. WHAT THIS SCORE MEANS ── */}
       <Card className="border-border/50 bg-card/50">
         <CardHeader>
-        <CardTitle className="text-2xl">What This Score Typically Leads To</CardTitle>
-        <CardDescription>Patterns we see at this level when nothing changes:</CardDescription>
+          <CardTitle className="text-2xl">What this score typically leads to</CardTitle>
+          <CardDescription>Patterns seen at this level when nothing changes:</CardDescription>
         </CardHeader>
         <CardContent>
           <ul className="space-y-3">
-            {consequences.map((consequence, idx) => (
-              <li key={idx} className="flex items-start gap-3">
+            {consequences.map((c, i) => (
+              <li key={i} className="flex items-start gap-3">
                 <AlertCircle className="h-5 w-5 text-amber-500 shrink-0 mt-0.5" />
-                <span className="text-foreground/90">{consequence}</span>
+                <span className="text-foreground/90">{c}</span>
               </li>
             ))}
           </ul>
         </CardContent>
       </Card>
 
-      {/* Without vs With Support */}
+      {/* ── 3. FREE PDF DOWNLOAD — value before the ask ── */}
+      <div className="rounded-2xl border border-primary/25 bg-primary/5 p-7 md:p-10 space-y-6">
+        <div className="flex items-start gap-4">
+          <div className="h-12 w-12 rounded-xl bg-primary/15 border border-primary/25 flex items-center justify-center shrink-0">
+            <BookOpen className="h-6 w-6 text-primary" />
+          </div>
+          <div className="space-y-1">
+            <p className="text-xs font-bold uppercase tracking-widest text-primary">Free Download — David Lui</p>
+            <h2 className="text-2xl md:text-3xl font-bold leading-tight">Achieve Work-Life Balance in 4 Weeks</h2>
+            <p className="text-muted-foreground">A step-by-step clinical guide by David Lui — the same framework used in his burnout coaching sessions.</p>
+          </div>
+        </div>
+
+        <div className="grid sm:grid-cols-2 gap-3">
+          {[
+            { icon: Clock, label: "Week 1: Establish the Framework", sub: "Time audit, goal-setting, and your ideal schedule" },
+            { icon: Lightbulb, label: "Week 2: Productivity & Time Management", sub: "Eisenhower Matrix, priority windows, task batching" },
+            { icon: Shield, label: "Week 3: Boundary-Setting", sub: "With managers, family, and your workspace environment" },
+            { icon: Heart, label: "Week 4: The 7 Types of Rest", sub: "Physical, mental, emotional, sensory, social, creative, spiritual" },
+          ].map(({ icon: Icon, label, sub }) => (
+            <div key={label} className="flex items-start gap-3 bg-background/60 rounded-lg p-3 border border-border/40">
+              <Icon className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+              <div>
+                <p className="text-sm font-semibold">{label}</p>
+                <p className="text-xs text-muted-foreground mt-0.5">{sub}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="space-y-2">
+          <Button size="lg" className="w-full h-13 text-base bg-primary hover:bg-primary/90 text-primary-foreground font-bold" asChild>
+            <a href="/rest-up-guide.pdf" download="Rest-Up-Guide-David-Lui.pdf">
+              <Download className="mr-2 h-5 w-5" />
+              Download the Free Guide (PDF)
+            </a>
+          </Button>
+          <p className="text-xs text-center text-muted-foreground">No email required · Instant download · Written by David Lui</p>
+        </div>
+      </div>
+
+      {/* ── 4. QUICK WINS — immediate value ── */}
+      <div className="space-y-5">
+        <div>
+          <p className="text-xs font-bold uppercase tracking-widest text-primary mb-2">Start Here — Right Now</p>
+          <h2 className="text-2xl md:text-3xl font-bold">Three things you can do today</h2>
+          <p className="text-muted-foreground mt-1">From David's clinical toolkit — no session required.</p>
+        </div>
+        <div className="space-y-4">
+          {[
+            {
+              step: "01",
+              title: "The 3-minute morning boundary",
+              body: "Before you open your phone or laptop, write down the one thing that actually needs your best thinking today. Everything else is a small rock — fill in gaps after the big one is done.",
+            },
+            {
+              step: "02",
+              title: "Audit your Eisenhower quadrants",
+              body: "Take 10 minutes at the end of today and categorise every task on your list into: urgent + important / important but not urgent / urgent but not important / neither. Most people are drowning in Q3 tasks that should be delegated or dropped.",
+            },
+            {
+              step: "03",
+              title: "Pick one type of rest tonight",
+              body: "Not Netflix as avoidance. Choose one: physical rest (sleep earlier), mental rest (no screens after 9pm), sensory rest (quiet, no notifications), or social rest (alone time, no social obligations). Notice what happens to your output tomorrow.",
+            },
+          ].map((item) => (
+            <div key={item.step} className="flex gap-4 md:gap-6 p-5 rounded-xl border border-border/50 bg-card/50">
+              <span className="text-3xl font-bold text-primary/20 font-mono shrink-0 leading-none mt-1">{item.step}</span>
+              <div className="space-y-1">
+                <p className="font-semibold text-base">{item.title}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">{item.body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="rounded-lg bg-muted/40 border border-border/40 px-5 py-4">
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            <span className="font-semibold text-foreground">From David:</span> These work — but they're surface-level. The reason most professionals can't make changes like this stick is that the underlying pressure pattern hasn't been diagnosed. That's what the burnout coaching session is for.
+          </p>
+        </div>
+      </div>
+
+      {/* ── 5. TWO PATHS ── */}
       <div className="space-y-6">
         <div className="text-center">
-          <h2 className="text-3xl font-bold mb-3">Two directions from here.</h2>
+          <h2 className="text-3xl font-bold mb-2">Two directions from here.</h2>
           <p className="text-muted-foreground text-lg">One gets harder. One gets clearer.</p>
         </div>
         <div className="grid md:grid-cols-2 gap-6">
@@ -116,22 +222,22 @@ export function ResultsDisplay({ result, totalScore }: ResultsDisplayProps) {
                 <CardTitle className="text-lg">If nothing changes</CardTitle>
               </div>
             </CardHeader>
-            <CardContent className="space-y-3 text-sm text-muted-foreground">
+            <CardContent className="space-y-2.5 text-sm text-muted-foreground">
               <p>— Cognitive decline compounds quietly, then visibly</p>
               <p>— Errors and missed cues accumulate at work</p>
               <p>— Relationships absorb the overflow</p>
               <p>— Full recovery from burnout takes 12–18 months</p>
-              <p>— Sydney's professional networks have long memories</p>
+              <p>— Sydney's professional circles have long memories</p>
             </CardContent>
           </Card>
           <Card className="border-primary/30 bg-card/50">
             <CardHeader>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="h-5 w-5 text-primary" />
-                <CardTitle className="text-lg">With one session</CardTitle>
+                <CardTitle className="text-lg">With one burnout coaching session</CardTitle>
               </div>
             </CardHeader>
-            <CardContent className="space-y-3 text-sm text-foreground/90">
+            <CardContent className="space-y-2.5 text-sm text-foreground/90">
               <p>✓ A clinical diagnosis of what's actually driving this</p>
               <p>✓ A written plan in your hands within 24 hours</p>
               <p>✓ Boundaries that hold without burning relationships</p>
@@ -142,7 +248,7 @@ export function ResultsDisplay({ result, totalScore }: ResultsDisplayProps) {
         </div>
       </div>
 
-      {/* Objection Removal */}
+      {/* ── 6. NOT THERAPY — objection removal ── */}
       <div className="rounded-xl bg-muted/40 border border-border/50 p-6 md:p-8 space-y-4">
         <h2 className="text-xl md:text-2xl font-bold">This is not therapy.</h2>
         <ul className="space-y-2">
@@ -158,14 +264,14 @@ export function ResultsDisplay({ result, totalScore }: ResultsDisplayProps) {
           ))}
         </ul>
         <p className="text-foreground font-medium pt-2 leading-relaxed">
-          It's a single, structured 60-minute session with a registered clinical psychologist. You leave with a specific written plan. One session, tangible output, no ongoing obligation.
+          It's a single, structured 60-minute burnout coaching session with a registered clinical psychologist. You leave with a specific written plan. One session, tangible output, no ongoing obligation.
         </p>
       </div>
 
-      {/* Session Breakdown */}
+      {/* ── 7. SESSION BREAKDOWN ── */}
       <div className="space-y-6">
-        <div className="space-y-2">
-          <h2 className="text-2xl md:text-3xl font-bold">What Happens in the 60-Minute Session?</h2>
+        <div className="space-y-1">
+          <h2 className="text-2xl md:text-3xl font-bold">What happens in the session</h2>
           <p className="text-muted-foreground">A structured clinical process — not a generic conversation.</p>
         </div>
         <div className="space-y-4">
@@ -173,22 +279,26 @@ export function ResultsDisplay({ result, totalScore }: ResultsDisplayProps) {
             {
               time: "0–15 min",
               title: "Pressure Mapping",
-              detail: "David identifies the specific stressors, patterns, and triggers driving your current state — using a structured clinical framework, not open-ended chat.",
+              detail:
+                "David identifies the specific stressors, patterns, and triggers driving your current state — using a structured clinical framework, not open-ended chat.",
             },
             {
               time: "15–35 min",
               title: "Cognitive Load Audit",
-              detail: "You'll work through where your mental bandwidth is being spent vs. where it needs to go. This surfaces hidden resource drains most people don't see.",
+              detail:
+                "You'll work through where your mental bandwidth is being spent vs. where it needs to go. This surfaces hidden resource drains most people don't see.",
             },
             {
               time: "35–50 min",
               title: "Reset Strategy",
-              detail: "David builds a prioritised action plan with you — specific to your role, schedule, and stress profile. Practical. Implementable immediately.",
+              detail:
+                "David builds a prioritised action plan with you — specific to your role, schedule, and stress profile. Practical. Implementable immediately.",
             },
             {
               time: "50–60 min",
               title: "Forward Structure",
-              detail: "You leave with clarity on your next 30 days: what to stop, what to protect, and what to address first.",
+              detail:
+                "You leave with clarity on your next 30 days: what to stop, what to protect, and what to address first.",
             },
           ].map((step, i) => (
             <div key={step.time} className="flex gap-4 md:gap-6">
@@ -209,87 +319,82 @@ export function ResultsDisplay({ result, totalScore }: ResultsDisplayProps) {
           ))}
         </div>
         <div className="rounded-lg bg-primary/5 border border-primary/20 px-5 py-4">
-          <p className="text-sm font-medium">Within 24 hours you receive a written recovery plan summarising your audit findings and prioritised action steps.</p>
+          <p className="text-sm font-medium">
+            Within 24 hours you receive a written recovery plan summarising your audit findings and prioritised action steps.
+          </p>
         </div>
       </div>
 
-      {/* Strategy Session Offer */}
-      <Card className="border-2 border-primary/30 bg-card">
+      {/* ── 8. SESSION OFFER CARD ── */}
+      <Card className="border-2 border-primary/30 bg-card" id="book">
         <CardHeader className="text-center pb-4">
           <Badge className="bg-primary text-primary-foreground font-bold mb-4 mx-auto">RECOMMENDED NEXT STEP</Badge>
-          <CardTitle className="text-3xl font-bold">The Executive Clarity Session</CardTitle>
+          <CardTitle className="text-3xl font-bold">The Executive Burnout Coaching Session</CardTitle>
           <CardDescription className="text-lg pt-2">
-            60-minute diagnostic deep-dive to identify what's draining you—and get a personalized roadmap to fix it.
+            60 minutes. A written plan delivered in 24 hours. One session — no ongoing commitment.
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="grid md:grid-cols-2 gap-6">
             <div className="space-y-4">
-              <h3 className="font-semibold text-lg">What's Included:</h3>
+              <h3 className="font-semibold text-lg">What's included:</h3>
               <ul className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-medium">Structured Burnout Assessment</p>
-                    <p className="text-sm text-muted-foreground">Identify exact triggers and mental resource leaks</p>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-medium">Personalized Recovery Plan</p>
-                    <p className="text-sm text-muted-foreground">Written action plan delivered within 24 hours</p>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-medium">Executive Stress Audit Tool</p>
-                    <p className="text-sm text-muted-foreground">Ongoing framework to monitor mental load</p>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-medium">Regulation Resources</p>
-                    <p className="text-sm text-muted-foreground">15-min audio reset, conflict scripts, library access</p>
-                  </div>
-                </li>
+                {[
+                  { title: "Clinical Burnout Diagnostic", sub: "Identify exact triggers and cognitive leaks" },
+                  { title: "Written Recovery Plan", sub: "Delivered within 24 hours of your session" },
+                  { title: "Stress Audit Framework", sub: "An ongoing self-monitoring tool you keep" },
+                  { title: "Regulation Resources", sub: "15-min audio reset, conflict scripts, full library" },
+                ].map((item) => (
+                  <li key={item.title} className="flex items-start gap-3">
+                    <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-medium">{item.title}</p>
+                      <p className="text-sm text-muted-foreground">{item.sub}</p>
+                    </div>
+                  </li>
+                ))}
               </ul>
             </div>
-            <div className="space-y-6">
-              <div className="bg-muted rounded-lg p-6 space-y-3">
+            <div className="space-y-5">
+              <div className="bg-muted rounded-lg p-6 space-y-1">
                 <p className="text-5xl font-bold text-primary">$395</p>
-                <p className="text-sm text-muted-foreground">One-time session fee</p>
+                <p className="text-sm text-muted-foreground">One-time session fee · No ongoing commitment</p>
               </div>
-              <div className="space-y-3 pt-2">
-                <div className="flex items-start gap-2">
-                  <Shield className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-semibold text-sm">Strict Professional Confidentiality</p>
-                    <p className="text-xs text-muted-foreground">Bound by AHPRA and the APS Code of Ethics. Nothing you share leaves the session.</p>
-                  </div>
+              <div className="flex items-start gap-3">
+                <Shield className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-semibold text-sm">Strict Professional Confidentiality</p>
+                  <p className="text-xs text-muted-foreground">Bound by AHPRA and APS Code of Ethics. Nothing leaves the session.</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <Award className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-semibold text-sm">AHPRA Registered Clinical Psychologist</p>
+                  <p className="text-xs text-muted-foreground">Licensed in NSW · Dual-qualified Psychologist & Coach</p>
                 </div>
               </div>
             </div>
           </div>
-          {/* Decision Close */}
-          <div className="text-center space-y-1 pt-2 pb-4 border-t border-border/40">
+
+          <div className="text-center space-y-1 pt-2 pb-2 border-t border-border/40">
             <p className="text-foreground font-semibold">You've done the assessment. You have the data.</p>
             <p className="text-muted-foreground">The only thing left is to decide what to do with it.</p>
           </div>
 
           <Button size="lg" className="w-full h-14 text-lg bg-primary hover:bg-primary/90 text-primary-foreground font-bold" asChild>
             <Link href="/booking">
-              Book Your Executive Strategy Session
+              Book Your Burnout Coaching Session
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </Button>
-          <p className="text-xs text-center text-muted-foreground">Private · Confidential · No employer reporting · Darlington, Sydney or online</p>
+          <p className="text-xs text-center text-muted-foreground">
+            Private · Confidential · No employer reporting · Darlington, Sydney or online
+          </p>
         </CardContent>
       </Card>
 
-      {/* Authority Strip */}
+      {/* ── 9. AUTHORITY STRIP ── */}
       <div className="grid grid-cols-3 gap-6 py-8 border-y border-border/50">
         <div className="text-center space-y-2">
           <Award className="h-8 w-8 text-primary mx-auto" />
@@ -299,68 +404,40 @@ export function ResultsDisplay({ result, totalScore }: ResultsDisplayProps) {
         <div className="text-center space-y-2">
           <CheckCircle2 className="h-8 w-8 text-primary mx-auto" />
           <p className="font-semibold text-sm">Evidence-Based Approach</p>
-          <p className="text-xs text-muted-foreground">Clinical strategies that work</p>
+          <p className="text-xs text-muted-foreground">Peer-reviewed clinical methods</p>
         </div>
         <div className="text-center space-y-2">
           <Shield className="h-8 w-8 text-primary mx-auto" />
           <p className="font-semibold text-sm">100% Confidential</p>
-          <p className="text-xs text-muted-foreground">Private, judgment-free</p>
+          <p className="text-xs text-muted-foreground">No records, no reporting</p>
         </div>
       </div>
 
-      {/* Lead Magnet - Secondary CTA */}
-      <Card className="border-border/50 bg-card/30">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2 text-xl">
-            <Download className="h-5 w-5 text-primary" />
-            Free Resource: Executive Reset Action Plan
-          </CardTitle>
-          <CardDescription>
-            Immediate strategies you can implement today while you consider next steps
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <ul className="grid md:grid-cols-2 gap-3">
-            <li className="flex items-start gap-2">
-              <CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-              <span className="text-sm">Evidence-based stress reduction techniques</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-              <span className="text-sm">Boundary-setting frameworks for executives</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-              <span className="text-sm">3-minute daily regulation practices</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-              <span className="text-sm">Recovery techniques from clinical psychology</span>
-            </li>
-          </ul>
-          <Button variant="outline" className="w-full bg-transparent" size="lg">
-            <Download className="mr-2 h-4 w-4" />
-            Download Your Action Plan (PDF)
-          </Button>
-        </CardContent>
-      </Card>
-
-      {/* Final Conversion Section */}
-      <div className="bg-gradient-to-br from-card to-card/50 rounded-xl p-8 md:p-12 text-center space-y-6 border border-primary/20">
-        <h2 className="text-3xl md:text-4xl font-bold">You already know something needs to change.</h2>
-        <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-          Book a private session with David. One hour. A written plan in 24 hours. No ongoing obligation. Sydney-based, AHPRA registered, and built for people who perform under real pressure.
+      {/* ── 10. FINAL CLOSE ── */}
+      <div className="rounded-xl bg-card border border-primary/20 p-8 md:p-12 text-center space-y-6">
+        <h2 className="text-3xl md:text-4xl font-bold font-serif">You already know something needs to change.</h2>
+        <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          Book a private burnout coaching session with David. One hour. A written plan in 24 hours. No ongoing obligation. Sydney-based, AHPRA registered, built for professionals under real pressure.
         </p>
-        <Button size="lg" className="h-16 px-12 text-lg bg-primary hover:bg-primary/90 text-primary-foreground font-bold" asChild>
-          <Link href="/booking">
-            <Calendar className="mr-2 h-5 w-5" />
-            Book the Session — $395
-          </Link>
-        </Button>
-        <p className="text-sm text-muted-foreground pt-2">
+        <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
+          <Button size="lg" className="h-14 px-10 text-base bg-primary hover:bg-primary/90 text-primary-foreground font-bold" asChild>
+            <Link href="/booking">
+              <Calendar className="mr-2 h-5 w-5" />
+              Book the Session — $395
+            </Link>
+          </Button>
+          <Button size="lg" variant="outline" className="h-14 px-8 text-base bg-transparent font-semibold" asChild>
+            <a href="/rest-up-guide.pdf" download="Rest-Up-Guide-David-Lui.pdf">
+              <Download className="mr-2 h-4 w-4" />
+              Download the Free Guide
+            </a>
+          </Button>
+        </div>
+        <p className="text-sm text-muted-foreground">
           Same-week availability · Darlington, Sydney · 100% confidential · AHPRA registered
         </p>
       </div>
+
     </div>
   );
 }
