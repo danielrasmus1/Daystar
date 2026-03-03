@@ -22,7 +22,9 @@ export default function ResultsPage() {
       return;
     }
 
-    setScore(parseInt(storedScore, 10));
+    // Cap score at 35 maximum
+    const parsedScore = Math.min(parseInt(storedScore, 10), 35);
+    setScore(parsedScore);
     setIsLoading(false);
   }, [router]);
 
