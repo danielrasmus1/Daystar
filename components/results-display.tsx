@@ -99,7 +99,7 @@ export function ResultsDisplay({ result, totalScore }: ResultsDisplayProps) {
             </Link>
           </Button>
           <Button size="lg" variant="outline" className="h-14 px-8 text-base bg-transparent font-semibold" asChild>
-            <a href="/rest-up-guide.pdf" download="Rest-Up-Guide-David-Lui.pdf">
+            <a href="/api/download/rest-up-guide">
               <Download className="mr-2 h-4 w-4" />
               Free Recovery Guide
             </a>
@@ -160,7 +160,7 @@ export function ResultsDisplay({ result, totalScore }: ResultsDisplayProps) {
 
         <div className="space-y-2">
           <Button size="lg" className="w-full h-13 text-base bg-primary hover:bg-primary/90 text-primary-foreground font-bold" asChild>
-            <a href="/rest-up-guide.pdf" download="Rest-Up-Guide-David-Lui.pdf">
+            <a href="/api/download/rest-up-guide">
               <Download className="mr-2 h-5 w-5" />
               Download the Free Guide (PDF)
             </a>
@@ -429,7 +429,7 @@ export function ResultsDisplay({ result, totalScore }: ResultsDisplayProps) {
             </Link>
           </Button>
           <Button size="lg" variant="outline" className="h-14 px-8 text-base bg-transparent font-semibold" asChild>
-            <a href="/rest-up-guide.pdf" download="Rest-Up-Guide-David-Lui.pdf">
+            <a href="/api/download/rest-up-guide">
               <Download className="mr-2 h-4 w-4" />
               Download the Free Guide
             </a>
