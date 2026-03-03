@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { SiteFooter } from "@/components/site-footer";
 import {
   ArrowRight,
   CheckCircle2,
@@ -568,22 +569,7 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border/40 py-12 px-6 bg-card">
-        <div className="container mx-auto max-w-5xl">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex items-center gap-3">
-              <div className="h-9 w-9 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-sm">
-                DS
-              </div>
-              <div>
-                <p className="font-bold text-sm leading-none">DayStar Strategies</p>
-                <p className="text-xs text-muted-foreground mt-0.5">David Lui · Clinical Psychologist · Sydney, Australia</p>
-              </div>
-            </div>
-            <p className="text-xs text-muted-foreground">© 2024 DayStar Strategies. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
 
       {/* Sticky Mobile CTA */}
       <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-background/95 backdrop-blur-sm border-t border-border/40 p-4">

@@ -79,7 +79,7 @@ export default function QuizPage() {
               </div>
               <h1 className="text-4xl md:text-5xl font-bold">Executive Stress Scorecard</h1>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                Answer honestly to get the most accurate picture of your current stress patterns.
+                If you're experiencing work-related stress or burnout symptoms, answer honestly to get the most accurate picture of your current patterns.
               </p>
             </div>
             
@@ -93,8 +93,9 @@ export default function QuizPage() {
               onSelect={handleAnswer}
             />
 
-            <div className="text-center text-sm text-muted-foreground pt-8">
-              <p>All responses are confidential and secure</p>
+            <div className="text-center text-xs text-muted-foreground pt-8 space-y-1 max-w-xl mx-auto">
+              <p>All responses are confidential and secure. Results are informational only and do not constitute a clinical diagnosis.</p>
+              <p>If you are in crisis, contact <a href="tel:131114" className="underline underline-offset-2">Lifeline on 13 11 14</a> or call 000.</p>
             </div>
           </div>
         ) : (

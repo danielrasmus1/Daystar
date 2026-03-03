@@ -11,6 +11,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { ArrowLeft, Calendar, CheckCircle2, Clock, MapPin, Video } from "lucide-react";
 import Link from "next/link";
+import { SiteFooter } from "@/components/site-footer";
 
 export default function BookingPage() {
   const [formData, setFormData] = useState({
@@ -109,6 +110,7 @@ export default function BookingPage() {
             </Button>
           </div>
         </main>
+        <SiteFooter />
       </div>
     );
   }
@@ -301,6 +303,11 @@ export default function BookingPage() {
                   <Calendar className="mr-2 h-5 w-5" />
                   {isSubmitting ? "Submitting..." : "Request Consultation"}
                 </Button>
+
+                <p className="text-xs text-muted-foreground text-center leading-relaxed">
+                  Medicare rebates may be available with a valid GP referral under a Mental Health Treatment Plan. Eligibility criteria apply.
+                  If you are in crisis, contact <a href="tel:131114" className="underline underline-offset-2">Lifeline on 13 11 14</a>.
+                </p>
               </form>
             </CardContent>
           </Card>
@@ -314,20 +321,7 @@ export default function BookingPage() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-border/40 py-10 px-4 bg-card">
-        <div className="container mx-auto max-w-5xl">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
-            <div className="flex items-center gap-3">
-              <div className="h-9 w-9 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-sm">DS</div>
-              <div>
-                <p className="font-bold text-sm leading-none">DayStar Strategies</p>
-                <p className="text-xs text-muted-foreground mt-0.5">David Lui · Clinical Psychologist · Sydney, Australia</p>
-              </div>
-            </div>
-            <p className="text-xs text-muted-foreground">© 2024 DayStar Strategies. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
