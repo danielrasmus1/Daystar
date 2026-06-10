@@ -65,7 +65,7 @@ export function SiteFooter() {
               <div className="flex items-center gap-4 text-xs text-muted-foreground">
                 <Link href="/privacy" className="hover:text-foreground transition-colors">Privacy Policy</Link>
                 <span>AHPRA Registered</span>
-                <span>ABN: [Your ABN]</span>
+                <span>ABN: 96 668 644 700</span>
               </div>
               <p className="text-xs text-muted-foreground">© 2025 DayStar Strategies. All rights reserved.</p>
             </div>

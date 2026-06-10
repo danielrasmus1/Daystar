@@ -30,7 +30,7 @@ export default function PrivacyPage() {
             <h1 className="font-serif text-4xl font-bold">Privacy Policy</h1>
             <p className="text-muted-foreground">Last updated: January 2025</p>
             <p className="text-muted-foreground leading-relaxed">
-              DayStar Strategies (ABN: [Your ABN]), operated by David Lui, is committed to protecting your privacy in accordance with the <em>Privacy Act 1988 (Cth)</em> and the Australian Privacy Principles (APPs).
+              DayStar Strategies (ABN: 96 668 644 700), operated by David Lui, is committed to protecting your privacy in accordance with the <em>Privacy Act 1988 (Cth)</em> and the Australian Privacy Principles (APPs).
             </p>
           </div>
 
